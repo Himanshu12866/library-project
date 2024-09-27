@@ -8,5 +8,19 @@
     background-attachment: fixed;
     overflow: hide;
     text-align: center;
-
+.input-box{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding-top: 15px;
+    width: 60%;
+    form{
+        width: 100%;
+        text-align: left;
+        input{
+            background-color: transparent;
+            color: white;
+        }
+    }
+}
 }

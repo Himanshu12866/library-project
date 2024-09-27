@@ -9,5 +9,20 @@
   overflow: hide;
   text-align: center;
 }
+.home-box-1 .input-box {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding-top: 15px;
+  width: 60%;
+}
+.home-box-1 .input-box form {
+  width: 100%;
+  text-align: left;
+}
+.home-box-1 .input-box form input {
+  background-color: transparent;
+  color: white;
+}
 
 /*# sourceMappingURL=home2.css.map */
