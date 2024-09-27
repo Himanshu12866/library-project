@@ -23,6 +23,7 @@ app.get("/videos" , (req ,res) => {
     })
 })
 
+
 app.get("/admins" ,(req,res) =>{
     mongoclient.connect(url).then(clientObj => {
         let db = clientObj.db("admin")

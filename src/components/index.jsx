@@ -10,8 +10,8 @@ export default function IndexPage(){
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<OutLet/>} />
-                    <Route path="/admin" element={<AdminLogin/>}>
-                    </Route>
+                    <Route path="/admin" element={<AdminLogin/>} />
+                    
                     <Route path="/adminDash" element={<AdminDashBoard/>}/>
                     
                     

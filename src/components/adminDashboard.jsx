@@ -1,10 +1,18 @@
 // import NavBar from "./navbar";
+import { useEffect} from "react";
 import { Link } from "react-router-dom";
 
-
+import { useCookies } from "react-cookie";
 
 export default function AdminDashBoard(){
+    // const [name , setName] = useState("")
+
+    let data = useCookies()
+useEffect(()=>{
+    console.log(data)
+} ,[])
     return (
+
         <div>
             <nav className="navbar navbar-expand-lg  p-3 bg-dark bg-light">
                 <Link className="navbar-brand text-light fw-bold" to="/">Video Library</Link>

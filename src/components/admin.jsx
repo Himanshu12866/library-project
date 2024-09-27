@@ -4,6 +4,7 @@ import "../styles/home2.css";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {setCookie} from "react-cookie"
 export default function AdminLogin() {
 
     const [admin, setAdmin] = useState([{
@@ -29,6 +30,9 @@ export default function AdminLogin() {
             console.log(detail)
             if (detail) {
              alert(` Welcome Back ${detail.adminName}`)
+             setCookie({
+                name: `${detail.adminName}`
+             })
 
              navigate("/adminDash")
             }
