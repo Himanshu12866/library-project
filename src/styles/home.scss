@@ -1,0 +1,20 @@
+.home-box{
+    width: 100%;
+    height: auto;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.742), rgba(12, 8, 8, 0.742)), url("../../public/vdo.jpg");
+    background-position: center;
+    background-size: cover;
+    color: white;
+    display:  flex;
+    background-attachment: fixed;
+    justify-content: center;
+    // align-items: center;
+    padding-top: 40px;
+    overflow: hide;
+    text-align: center;
+
+
+}
+li{
+    font-weight: bold;
+}
