@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { useCookies } from "react-cookie";
+// import { useCookies } from "react-cookie";
 import axios from "axios";
 
 export default function AdminDashBoard() {
@@ -24,13 +24,13 @@ export default function AdminDashBoard() {
             )
     }
 
-    let data = useCookies()
+    // let data = useCookies()
     useEffect(() => {
         Loadvdo()
-    }, [data])
+    }, [])
     return (
 
-        <div className="home-box-1">
+        <div className="home-box-1 overflow-x-hidden">
             <nav className="navbar navbar-expand-lg  p-3 bg-dark bg-light">
                 <Link className="navbar-brand text-light fw-bold" to="/">Video Library</Link>
                 <button className="navbar-toggler" data-bs-target="#list" data-bs-toggle="collapse" >
@@ -66,13 +66,13 @@ export default function AdminDashBoard() {
             <div>
                 <h1>Admin Dashboard</h1>
 
-                <div>
+                <div className="d-flex justify-content-center">
                     {
-                        vdo.map(item => <div className="row">
+                        vdo.map(item => <div className="row" style={{width:"80%"}}>
                             <div className="col-lg-4">
-                                <iframe title={item.title} src={item.url}></iframe>
+                                <iframe style={{width:"100%" , height:"250px"}} src="https://youtub.com/embed/1ZDdjfGOycA" title={item.title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
-                            <div className="col-lg-4" style={{textAlign:"left"}}>
+                            <div className="col-lg-4" style={{ textAlign: "left" }}>
                                 <p> Name :<span className="fw-bold"> {item.title}</span></p>
                                 <p>Category : <span>{item.videoName}</span></p>
 
