@@ -1,9 +1,13 @@
+/* eslint-disable jsx-a11y/no-distracting-elements */
 import "../styles/home.css";
 
 export default function Home() {
     return (
         <div className="home-box">
             <div>
+            {/* <marquee>
+                <p>Please Login To Watch Videos</p>
+            </marquee> */}
                 <h1>WELCOME TO THE VIDEO WORLD</h1>
                 <p>This is my first Full Stack Porject</p>
                 <ul style={{ textAlign: "left", listStyle: "none" }}>

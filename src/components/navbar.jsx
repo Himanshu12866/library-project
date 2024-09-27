@@ -8,14 +8,14 @@ export default function NavBar() {
     return (
         <div>
             <nav className="navbar navbar-expand-lg  p-3 bg-dark bg-light">
-                <a className="navbar-brand text-light fw-bold" href="kmn">Video Library</a>
+                <Link className="navbar-brand text-light fw-bold" to="/">Video Library</Link>
                 <button className="navbar-toggler" data-bs-target="#list" data-bs-toggle="collapse" >
                     <span className="bi bi-list text-light"></span>
                 </button>
                 <div className="navbar-collapse collapse d-lg-flex justify-content-lg-between" id="list">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link to="" className="nav-link text-light">Admin Login</Link>
+                            <Link to="/admin" className="nav-link text-light">Admin Login</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="" className="nav-link text-light">User Login</Link>
@@ -43,7 +43,7 @@ export default function NavBar() {
                     </ul>
                 </div>
             </nav>
-            <Home/>
+       
         </div>
     )
 }
