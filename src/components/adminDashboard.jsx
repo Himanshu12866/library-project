@@ -11,7 +11,10 @@ export default function AdminDashBoard() {
         videoName: "",
         title: "",
         videocategory: "",
-        url: ""
+        url: "",
+        likes: "",
+        dislikes: "",
+        views: ""
 
     }])
     // const [name , setName] = useState("")
@@ -64,18 +67,31 @@ export default function AdminDashBoard() {
             </nav>
 
             <div>
-               
+
 
                 <div className="d-flex justify-content-center mt-4">
                     {
-                        vdo.map(item => <div className="row" style={{width:"80%"}}>
+                        vdo.map(item => <div className="row" style={{ width: "80%" }}>
                             <div className="col-lg-4">
-                                <iframe style={{width:"100%" , height:"250px"}} src={item.url} title={item.title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe style={{ width: "100%", height: "250px" }} src={item.url} title={item.title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullscreen></iframe>
                             </div>
-                            <div className="col-lg-4" style={{ textAlign: "left" }}>
+                            <div className="col-lg-6" style={{ textAlign: "left" }}>
                                 <p> Name :<span className="fw-bold"> {item.title}</span></p>
                                 <p>Category : <span>{item.videoName}</span></p>
+                                <div className="d-flex justify-content-start">
+                                    <p><span className="btn bi bi-hand-thumbs-up-fill p-0 text-light"></span>{item.likes}</p>
+                                    <p className="mx-2"><span className="btn bi bi-hand-thumbs-down-fill text-light p-0"></span>{item.dislikes}</p>
+                                    <p><span className="btn bi bi-people-fill text-light p-0"></span>{item.views}</p>
 
+                                </div>
+                            </div>
+                            <div className="col-lg-2" style={{ display: "flex", flexDirection: "column", alignContent: "space-between", justifyContent: "space-evenly" }}>
+                                <div>
+                                    <button className="btn btn-dark w-100">Edit Video Details</button>
+                                </div>
+                                <div>
+                                    <button className="btn btn-danger w-100">Remove Video</button>
+                                </div>
 
                             </div>
 
