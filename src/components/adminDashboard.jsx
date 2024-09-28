@@ -47,18 +47,15 @@ export default function AdminDashBoard() {
                         </li>
                     </ul>
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <Link className="nav-link text-light">
-                                <span className="bi bi-person-fill fs-4 text-light"></span>
+
+                        <li className=" nav-item">
+                            <Link className="btn btn-success  nav-link text-light" title="Add New Videos">
+                                <span className="bi bi-cloud-plus-fill fs-4" ></span>
+
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-light">
-                                <span className="bi bi-cloud-plus-fill fs-4"></span>
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link text-light">
+                            <Link to="/addVideo" className="nav-link text-light">
                                 <span className="bi bi-box-arrow-right fs-4"></span>
                             </Link>
                         </li>

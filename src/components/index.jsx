@@ -2,6 +2,7 @@ import { BrowserRouter,  Routes, Route } from "react-router-dom";
 import OutLet from "./outlet";
 import AdminLogin from "./admin";
 import AdminDashBoard from "./adminDashboard";
+import AddVideo from "./addVdo";
 
 export default function IndexPage(){
 
@@ -13,6 +14,7 @@ export default function IndexPage(){
                     <Route path="/admin" element={<AdminLogin/>} />
                     
                     <Route path="/adminDash" element={<AdminDashBoard/>}/>
+                    <Route path="/addVideo" element={<AddVideo/>}/>
                     
                     
                 </Routes>
