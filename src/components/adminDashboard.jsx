@@ -49,13 +49,13 @@ export default function AdminDashBoard() {
                     <ul className="navbar-nav">
 
                         <li className=" nav-item">
-                            <Link className="btn btn-success  nav-link text-light" title="Add New Videos">
+                            <Link to="/addVideo" className="btn btn-success  nav-link text-light" title="Add New Videos">
                                 <span className="bi bi-cloud-plus-fill fs-4" ></span>
 
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/addVideo" className="nav-link text-light">
+                            <Link to="" className="nav-link text-light">
                                 <span className="bi bi-box-arrow-right fs-4"></span>
                             </Link>
                         </li>
@@ -68,11 +68,11 @@ export default function AdminDashBoard() {
 
                 <div className="d-flex justify-content-center mt-4">
                     {
-                        vdo.map(item => <div className="row" style={{ width: "80%" }}>
-                            <div className="col-lg-4">
-                                <iframe style={{ width: "100%", height: "250px" }} src={item.url} title={item.title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullscreen></iframe>
+                        vdo.map(item => <div  className="row" style={{ width: "80%" }}>
+                            <div className="col-lg-4" key={item.id}>
+                                <iframe style={{ width: "100%", height: "250px" }} src={item.url} title={item.title}  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                             </div>
-                            <div className="col-lg-6" style={{ textAlign: "left" }}>
+                            <div className="col-lg-6" key={item.id} style={{ textAlign: "left" }}>
                                 <p> Name :<span className="fw-bold"> {item.title}</span></p>
                                 <p>Category : <span>{item.videoName}</span></p>
                                 <div className="d-flex justify-content-start">
@@ -82,7 +82,7 @@ export default function AdminDashBoard() {
 
                                 </div>
                             </div>
-                            <div className="col-lg-2" style={{ display: "flex", flexDirection: "column", alignContent: "space-between", justifyContent: "space-evenly" }}>
+                            <div className="col-lg-2" key={item.id} style={{ display: "flex", flexDirection: "column", alignContent: "space-between", justifyContent: "space-evenly" }}>
                                 <div>
                                     <button className="btn btn-dark w-100">Edit Video Details</button>
                                 </div>

@@ -4,13 +4,13 @@ import "../styles/home2.css";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {useCookies} from "react-cookie"
+// import {useCookies} from "react-cookie"
 export default function AdminLogin() {
 
     const [admin, setAdmin] = useState([{
        
     }])
-    const [ setCookie, ] = useCookies("name");
+    // const [ setCookie, ] = useCookies("name");
 
     let navigate = useNavigate()
     function LoadAdmins() {
@@ -45,7 +45,7 @@ export default function AdminLogin() {
     })
     useEffect(() => {
         LoadAdmins()
-    } , [])
+    } )
 
     return (
         <div className="home-box-1">
