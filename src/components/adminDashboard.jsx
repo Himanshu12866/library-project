@@ -40,7 +40,7 @@ export default function AdminDashBoard() {
                     <ul className="navbar-nav">
 
                         <li className="nav-item">
-                            <Link to="" className="nav-link text-light">Dashboard</Link>
+                            <Link to="" className="nav-link text-light">Admin Dashboard</Link>
                         </li>
                     </ul>
                     <ul className="navbar-nav">
@@ -64,13 +64,13 @@ export default function AdminDashBoard() {
             </nav>
 
             <div>
-                <h1>Admin Dashboard</h1>
+               
 
-                <div className="d-flex justify-content-center">
+                <div className="d-flex justify-content-center mt-4">
                     {
                         vdo.map(item => <div className="row" style={{width:"80%"}}>
                             <div className="col-lg-4">
-                                <iframe style={{width:"100%" , height:"250px"}} src="https://youtub.com/embed/1ZDdjfGOycA" title={item.title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe style={{width:"100%" , height:"250px"}} src={item.url} title={item.title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
                             <div className="col-lg-4" style={{ textAlign: "left" }}>
                                 <p> Name :<span className="fw-bold"> {item.title}</span></p>
