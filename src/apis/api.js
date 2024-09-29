@@ -34,5 +34,28 @@ app.get("/admins", (req, res) => {
     })
 })
 
+
+
+app.post("/addVdo", (req, res) => {
+    let video = {
+        videoId: parseInt(req.body.videoId),
+        videoName: req.body.videoName,
+        url: req.body.url,
+        title: req.body.title,
+        dislikes: req.body.dislikes,
+        likes: req.body.likes,
+        videoCategory:req.body.videoCategory,
+        views: req.body.views
+
+    }
+    mongoclient.connect(url).then(clientObj => {
+        let db = clientObj.db(dbName)
+        db.collection("videos").insertOne(video).then(document => {
+            res.send(document)
+            res.redirect("/adminDash")
+            res.end()
+        })
+    })
+})
 app.listen(1234)
 console.log("Server Started at http://127.0.0.1:1234")

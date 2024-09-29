@@ -12,8 +12,8 @@ export default function AdminDashBoard() {
         title: "",
         videocategory: "",
         url: "",
-        likes: "",
         dislikes: "",
+        likes: "",
         views: ""
 
     }])
@@ -63,32 +63,35 @@ export default function AdminDashBoard() {
                 </div>
             </nav>
 
-            <div>
+            <div className="d-flex justify-content-center">
 
 
-                <div className="d-flex justify-content-center mt-4">
+
+                <div style={{ width: "85%" }}>
                     {
-                        vdo.map(item => <div  className="row" style={{ width: "80%" }}>
-                            <div className="col-lg-4" key={item.id}>
-                                <iframe style={{ width: "100%", height: "250px" }} src={item.url} title={item.title}  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                        vdo.map(item => <div className="row my-3" style={{ width: "100%", height: "400px" }}>
+                            <div className="col-lg-6" key={item.id}>
+                                <iframe style={{ width: "100%", height: "380px" }} src={item.url} title={item.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                             </div>
                             <div className="col-lg-6" key={item.id} style={{ textAlign: "left" }}>
-                                <p> Name :<span className="fw-bold"> {item.title}</span></p>
-                                <p>Category : <span>{item.videoName}</span></p>
-                                <div className="d-flex justify-content-start">
-                                    <p><span className="btn bi bi-hand-thumbs-up-fill p-0 text-light"></span>{item.likes}</p>
-                                    <p className="mx-2"><span className="btn bi bi-hand-thumbs-down-fill text-light p-0"></span>{item.dislikes}</p>
-                                    <p><span className="btn bi bi-people-fill text-light p-0"></span>{item.views}</p>
+                                <div style={{ height: "320px"}}>
+                                    <p> Name :<span className="fw-bold"> {item.title}</span></p>
+                                    <p>Category : <span>{item.videoName}</span></p>
+                                    <div className="d-flex justify-content-start">
+                                        <p><span className="btn bi bi-hand-thumbs-up-fill p-0 text-light"></span>{item.likes}</p>
+                                        <p className="mx-2"><span className="btn bi bi-hand-thumbs-down-fill text-light p-0"></span>{item.dislikes}</p>
+                                        <p><span className="btn bi bi-people-fill text-light p-0"></span>{item.views}</p>
+                                    </div>
+                                </div>
+                                <div className="row" key={item.id} >
+                                    <div className="col-6">
+                                        <button className="btn btn-dark w-100 p-2 mt-3">Edit Video Details</button>
+                                    </div>
+                                    <div className="col-6">
+                                        <button className="btn btn-danger w-100 p-2 mt-3">Remove Video</button>
+                                    </div>
+                                </div>
 
-                                </div>
-                            </div>
-                            <div className="col-lg-2" key={item.id} style={{ display: "flex", flexDirection: "column", alignContent: "space-between", justifyContent: "space-evenly" }}>
-                                <div>
-                                    <button className="btn btn-dark w-100">Edit Video Details</button>
-                                </div>
-                                <div>
-                                    <button className="btn btn-danger w-100">Remove Video</button>
-                                </div>
 
                             </div>
 
@@ -98,5 +101,6 @@ export default function AdminDashBoard() {
                 </div>
             </div>
         </div>
+
     )
 }
