@@ -10,7 +10,7 @@ export default function AdminDashBoard() {
         videoId: 0,
         videoName: "",
         title: "",
-        videocategory: "",
+        videoCategory: "",
         url: "",
         dislikes: "",
         likes: "",
@@ -75,12 +75,14 @@ export default function AdminDashBoard() {
                             </div>
                             <div className="col-lg-6" key={item.id} style={{ textAlign: "left" }}>
                                 <div style={{ height: "320px"}}>
-                                    <p> Name :<span className="fw-bold"> {item.title}</span></p>
-                                    <p>Category : <span>{item.videoName}</span></p>
+                                    <p className="fs-3"> Name :<span className="fw-bold  fw-bold fs-2"> {item.title}</span></p>
+                                    <p className="fs-3">About : <span className="fs-3 fw-bold ">{item.videoName}</span></p>
+                                    <p className="fs-3">Title : <span className="fs-3 fw-bold ">{item.title}</span></p>
+                                    <p className="fs-3">Category : <span className="fs-3 fw-bold ">{item.videoCategory}</span></p>
                                     <div className="d-flex justify-content-start">
-                                        <p><span className="btn bi bi-hand-thumbs-up-fill p-0 text-light"></span>{item.likes}</p>
-                                        <p className="mx-2"><span className="btn bi bi-hand-thumbs-down-fill text-light p-0"></span>{item.dislikes}</p>
-                                        <p><span className="btn bi bi-people-fill text-light p-0"></span>{item.views}</p>
+                                        <p><span className="btn bi bi-hand-thumbs-up-fill  text-light badge bg-info fs-5 p-2">{item.likes}</span></p>
+                                        <p className="mx-2"><span className="btn bi bi-hand-thumbs-down-fill text-light text-light badge bg-danger fs-5 p-2 ">{item.dislikes}</span></p>
+                                        <p><span className="btn bi bi-people-fill text-light badge bg-warning p-2 fs-5">{item.views}</span></p>
                                     </div>
                                 </div>
                                 <div className="row" key={item.id} >

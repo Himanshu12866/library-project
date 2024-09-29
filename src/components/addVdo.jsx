@@ -27,8 +27,8 @@ export default function AddVideo() {
         },
         enableReinitialize: true,
         onSubmit: (values) => {
-            // Set videoId based on the length of videos array
-            values.videoId = `VDO_${videos.length + 1}`;
+        
+            values.videoId = `${videos.length + 1}`;
             axios.post("http://127.0.0.1:1234/addVdo", values)
                 .then(() => {
                     alert("Video Added Successfully");
