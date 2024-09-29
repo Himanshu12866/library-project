@@ -11,10 +11,10 @@ export default function IndexPage(){
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<OutLet/>} />
-                    <Route path="/admin" element={<AdminLogin/>} >
+                    <Route path="/admin" element={<AdminLogin/>} />
                     
-                    <Route path="/admin/adminDash" element={<AdminDashBoard/>}/>
-                    </Route>
+                 
+                    <Route path="/adminDash" element={<AdminDashBoard/>}/>
                     <Route path="/addVideo" element={<AddVideo/>}/>
                     
                     

@@ -35,7 +35,7 @@ export default function AdminLogin() {
             //     name: `${detail.adminName}`
             //  )
 
-             navigate("/admin/adminDash")
+             navigate("/adminDash")
             }
             else{
                 alert("Admin Not Found")
@@ -72,6 +72,7 @@ export default function AdminLogin() {
                     </div>
                 </div>
             </div>
+      
         </div>
     );
 }
