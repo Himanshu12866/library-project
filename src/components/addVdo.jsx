@@ -1,35 +1,46 @@
-import axios from "axios"
-import { useFormik } from "formik"
-import { useNavigate } from "react-router-dom"
-
-
+import axios from "axios";
+import { useFormik } from "formik";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function AddVideo() {
-let navigate  = useNavigate()
+    let navigate = useNavigate();
+    const [videos, setVideos] = useState([]);
+    
+    function LoadVdo() {
+        axios.get("http://127.0.0.1:1234/videos")
+            .then(response => {
+                setVideos(response.data);
+            });
+    }
 
     let formik = useFormik({
         initialValues: {
             videoId: "",
-            videoName:"",
+            videoName: "",
             url: "",
-            title:"",
-            videoCategory:"",
+            title: "",
+            videoCategory: "",
             dislikes: "",
             likes: "",
-            views:""
+            views: ""
         },
-        enableReinitialize:true,
+        enableReinitialize: true,
         onSubmit: (values) => {
-          axios.post(
-            "http://127.0.0.1:1234/addVdo" , values
-          )
-          .then(() => {
-            alert("Video Added Successfully")
-            navigate("/adminDash")
-          })
+            // Set videoId based on the length of videos array
+            values.videoId = `VDO_${videos.length + 1}`;
+            axios.post("http://127.0.0.1:1234/addVdo", values)
+                .then(() => {
+                    alert("Video Added Successfully");
+                    navigate("/adminDash");
+                });
         }
+    });
 
-    })
+    useEffect(() => {
+        LoadVdo();
+    }, []);
+
     return (
         <div className="home-box-1">
             <h1 className="btn fw-bold btn-dark w-100 my-2 p-4" style={{ textTransform: "uppercase", fontSize: "20px", letterSpacing: "2px" }}>Add Video</h1>
@@ -39,24 +50,23 @@ let navigate  = useNavigate()
 
                     <div className="card-header" style={{ backgroundColor: "transparent", color: "white" }}>
                         <h2>Please Fill The Details</h2>
-                        <hr></hr>
+                        <hr />
                         <div className="card-body">
-
                             <form onSubmit={formik.handleSubmit}>
                                 <div className="row my-2">
                                     <div className="col-6 p-1">
-                                        Video ID:
+                                        Video ID (Auto-generated):
                                     </div>
                                     <div className="col-6">
-                                        <input onChange={formik.handleChange} name="videoId" className="form-control"  />
+                                        <input name="videoId" value={`${videos.length + 1}`}  readOnly className="form-control" />
                                     </div>
                                 </div>
                                 <div className="row my-2">
                                     <div className="col-6 p-1">
                                         Video Name:
                                     </div>
-                                    <div className="col-6"> 
-                                        <input onChange={formik.handleChange} name="videoName" className="form-control"  />
+                                    <div className="col-6">
+                                        <input onChange={formik.handleChange} name="videoName" className="form-control" />
                                     </div>
                                 </div>
                                 <div className="row my-2">
@@ -64,7 +74,15 @@ let navigate  = useNavigate()
                                         Video Title:
                                     </div>
                                     <div className="col-6">
-                                        <input onChange={formik.handleChange} name="url" className="form-control"  />
+                                        <input onChange={formik.handleChange} name="title" className="form-control" />
+                                    </div>
+                                </div>
+                                <div className="row my-2">
+                                    <div className="col-6 p-1">
+                                        Video URL:
+                                    </div>
+                                    <div className="col-6">
+                                        <input onChange={formik.handleChange} name="url" className="form-control" />
                                     </div>
                                 </div>
                                 <div className="row my-2">
@@ -72,19 +90,11 @@ let navigate  = useNavigate()
                                         Video Category:
                                     </div>
                                     <div className="col-6">
-                                        <input onChange={formik.handleChange} name="videoCategory" className="form-control"  />
+                                        <input onChange={formik.handleChange} name="videoCategory" className="form-control" />
                                     </div>
                                 </div>
                                 <div className="row my-2">
-                                    <div className="col-6 p-1 w-50" >
-                                        Video URL:
-                                    </div>
-                                    <div className="col-6">
-                                        <input onChange={formik.handleChange} name="url" className="form-control"  />
-                                    </div>
-                                </div>
-                                <div className="row my-2">
-                                    <div className="col-6 p-1 w-50" >
+                                    <div className="col-6 p-1">
                                         Video Likes:
                                     </div>
                                     <div className="col-6">
@@ -92,7 +102,7 @@ let navigate  = useNavigate()
                                     </div>
                                 </div>
                                 <div className="row my-2">
-                                    <div className="col-6 p-1 w-50" >
+                                    <div className="col-6 p-1">
                                         Video Dislikes:
                                     </div>
                                     <div className="col-6">
@@ -100,8 +110,8 @@ let navigate  = useNavigate()
                                     </div>
                                 </div>
                                 <div className="row my-2">
-                                    <div className="col-6 p-1 w-50" >
-                                        Video View:
+                                    <div className="col-6 p-1">
+                                        Video Views:
                                     </div>
                                     <div className="col-6">
                                         <input onChange={formik.handleChange} name="views" className="form-control" />
@@ -109,13 +119,10 @@ let navigate  = useNavigate()
                                 </div>
                                 <button type="submit" className="btn btn-success">Submit</button>
                             </form>
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
-    )
+    );
 }
