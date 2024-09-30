@@ -1,9 +1,9 @@
 import { useState , useEffect} from "react";
 import {useCookies } from "react-cookie";  // Correct import
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
-    const [cookies , removeCookie] = useCookies(["Adminname"]); // Correct usage of useCookies
+    const [cookies ] = useCookies(["Adminname"]); // Correct usage of useCookies
     const [admin, setAdmin] = useState(""); // Initialize admin state
 
     useEffect(() => {
@@ -11,13 +11,9 @@ export default function NavBar() {
             setAdmin(cookies.Adminname); // Set admin from cookie if available
         }
     }, [cookies]); // Use useEffect to avoid setting state during render
-    let navigate = useNavigate()
+    // let navigate = useNavigate()
 
 
-    function SignOut(){
-       removeCookie("Adminname" , {path :"/"})
-       navigate("/")
-    } 
 
     return (
         <div>
@@ -59,9 +55,9 @@ export default function NavBar() {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <button onClick={SignOut} className="nav-link text-light btn btn-danger " title="SignOut">
+                            <Link className="nav-link text-light btn btn-danger " title="SignOut">
                                 <span className="bi bi-box-arrow-right fs-4 m-1"></span>
-                            </button>
+                            </Link>
                         </li>
                     </ul>
                 </div>
