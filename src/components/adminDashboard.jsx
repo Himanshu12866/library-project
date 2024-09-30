@@ -2,8 +2,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-// import { useCookies } from "react-cookie";
+
 import axios from "axios";
+import { useCookies } from "react-cookie";
 
 export default function AdminDashBoard() {
     const [vdo, setVdo] = useState([{
@@ -17,7 +18,9 @@ export default function AdminDashBoard() {
         views: ""
 
     }])
-    // const [name , setName] = useState("")
+    let data = useCookies(["Adminname"])
+    console.log(data)
+    
     function Loadvdo() {
         axios.get("http://127.0.0.1:1234/videos")
             .then(response => {
@@ -59,9 +62,15 @@ export default function AdminDashBoard() {
                                 <span className="bi bi-box-arrow-right fs-4"></span>
                             </Link>
                         </li>
+                        <li>
+                            <p>{
+                                data.map(admin => <p key={admin}>{admin.Adminname}</p>)
+                            }</p>
+                        </li>
                     </ul>
                 </div>
             </nav>
+          
 
             <div className="d-flex justify-content-center">
 
