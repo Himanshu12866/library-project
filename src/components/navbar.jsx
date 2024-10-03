@@ -4,19 +4,24 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function NavBar() {
     let navigate = useNavigate();
-    const [cookies, , removeCookie] = useCookies("Adminname"); // Correctly destructuring useCookies
+    const [cookies, , removeCookie] = useCookies(["Adminname"]); // Correctly destructuring useCookies
     const [admin, setAdmin] = useState("");
-
+   
     useEffect(() => {
         if (cookies.Adminname) {
             setAdmin(cookies.Adminname); // Ensure admin is a string or valid JSX content
         }
+     
     }, [cookies]);
-
+    // useEffect(() => {
+    //     RemoveCookie()
+    // })
     function RemoveCookie() {
         removeCookie("Adminname", { path: "/" });
         navigate("/");
     }
+
+
 
     return (
         <div>
@@ -26,7 +31,7 @@ export default function NavBar() {
                     <span className="bi bi-list text-light"></span>
                 </button>
                 <div className="navbar-collapse collapse d-lg-flex justify-content-lg-between" id="list">
-                    {admin ? (
+                    {cookies.Adminname ? (
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <Link to="/adminDash" className="nav-link text-light">Admin Dashboard</Link>
@@ -43,17 +48,17 @@ export default function NavBar() {
                         </ul>
                     )}
                     <ul className="navbar-nav">
-                        {admin ? (
+                        {cookies.Adminname ? (
+                            <div className="d-flex ">
                             <li className="nav-item bg-primary">
                                 <span className="badge bi bi-person-fill"></span>
                                 <a href="#!" className="nav-link text-light fs-5">
                                     <span className="badge bg-dark">
                                         <span className="bi bi-person-fill"></span>
-                                    </span> {typeof admin === 'string' ? admin : 'Admin'} {/* Ensure admin is a string */}
+                                    </span> {cookies.Adminname}
                                 </a>
                             </li>
-                        ) : null}
-                        <li className="nav-item">
+                            <li className="nav-item">
                             <Link to="/addVideo" className="mx-2 nav-link text-light btn btn-success" title="Add Video">
                                 <span className="bi bi-cloud-plus fs-4 m-1"></span>
                             </Link>
@@ -63,6 +68,9 @@ export default function NavBar() {
                                 <span className="bi bi-box-arrow-right fs-4 m-1"></span>
                             </button>
                         </li>
+                        </div>
+                        ) : null}
+                        
                     </ul>
                 </div>
             </nav>

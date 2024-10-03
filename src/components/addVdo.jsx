@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function AddVideo() {
     let navigate = useNavigate();
@@ -117,7 +117,8 @@ export default function AddVideo() {
                                         <input onChange={formik.handleChange} name="views" className="form-control" />
                                     </div>
                                 </div>
-                                <button type="submit" className="btn btn-success">Submit</button>
+                                <button type="submit" className="btn w-50 btn-success">Submit</button>
+                                <Link to="/adminDashboard" className="btn w-50 btn-dark">Cancel</Link>
                             </form>
                         </div>
                     </div>
