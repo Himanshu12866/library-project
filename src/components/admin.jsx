@@ -10,9 +10,21 @@ import {useCookies} from "react-cookie";
 
 export default function AdminLogin() {
     const [admin, setAdmin] = useState([]);
-    const [cookies, setCookie ] = useCookies(["Adminname"]); // Updated to destructure the cookies and setCookie correctly
+    const [cookies, setCookie ] = useCookies(["Adminname"]); 
+    const [ type , setType] = useState("password");
+    const [ eye , setEye] = useState("bi bi-eye-slash")
     let navigate = useNavigate();
 
+    function ChangeType(){
+       if(type === "password"){
+        setType("text")
+        setEye("bi bi-eye")
+       }
+       else{
+        setType("password")
+        setEye("bi bi-eye-slash")
+       }
+    }
     // Fetch admin data from the server
     function LoadAdmins() {
         axios.get('http://127.0.0.1:1234/admins')
@@ -69,13 +81,13 @@ export default function AdminLogin() {
                             <label className="form-label fw-bold fs-3">Password :</label>
                             <div className="input-group">
                                 <input
-                                    type="password"
+                                    type={type}
                                     onChange={formik.handleChange}
                                     className="form-control"
                                     name="adminPsw"
                                     value={formik.values.adminPsw} // Added value to bind input with formik
                                 />
-                                <span className="input-group-text bi bi-eye-slash"></span>
+                                <span onClick={ChangeType} className= {`input-group-text bg-dark text-light  ${eye}`}></span>
                             </div>
                             <label className="form-label fs-3 fw-bold">Enter Captcha:</label>
                             <input type="text" className="form-control" />
