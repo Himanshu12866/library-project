@@ -47,7 +47,7 @@ export default function AdminDashBoard() {
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <p className="nav-link">{
-                                data.map(admin => <i className="text-light" key={admin}>{admin.Adminname}</i>)
+                                data.map(admin => <i className="text-light" key={admin.Adminname}>{admin.Adminname}</i>)
                             }</p>
                         </li>
                         <li className=" nav-item">

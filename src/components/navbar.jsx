@@ -1,23 +1,22 @@
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function NavBar() {
-    // let navigate = useNavigate();
-    const [cookies] = useCookies(["Adminname"]);
+    let navigate = useNavigate();
+    const [cookies, , removeCookie] = useCookies("Adminname"); // Correctly destructuring useCookies
     const [admin, setAdmin] = useState("");
 
     useEffect(() => {
         if (cookies.Adminname) {
-            setAdmin(cookies.Adminname);
+            setAdmin(cookies.Adminname); // Ensure admin is a string or valid JSX content
         }
     }, [cookies]);
 
-    // function RemoveCookie() {
-    //     removeCookie("Adminname", { path: "/" }); // Correct usage here
-    //     navigate("/");
-    // }
-
+    function RemoveCookie() {
+        removeCookie("Adminname", { path: "/" });
+        navigate("/");
+    }
 
     return (
         <div>
@@ -48,20 +47,21 @@ export default function NavBar() {
                             <li className="nav-item bg-primary">
                                 <span className="badge bi bi-person-fill"></span>
                                 <a href="#!" className="nav-link text-light fs-5">
-                                    <span className="badge bg-dark"><span className="bi bi-person-fill"></span></span> {admin}
+                                    <span className="badge bg-dark">
+                                        <span className="bi bi-person-fill"></span>
+                                    </span> {typeof admin === 'string' ? admin : 'Admin'} {/* Ensure admin is a string */}
                                 </a>
                             </li>
-                        ) : null
-                        }
+                        ) : null}
                         <li className="nav-item">
                             <Link to="/addVideo" className="mx-2 nav-link text-light btn btn-success" title="Add Video">
                                 <span className="bi bi-cloud-plus fs-4 m-1"></span>
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/" className="nav-link text-light btn btn-danger" title="SignOut">
+                            <button onClick={RemoveCookie} className="nav-link text-light btn btn-danger" title="SignOut">
                                 <span className="bi bi-box-arrow-right fs-4 m-1"></span>
-                            </Link>
+                            </button>
                         </li>
                     </ul>
                 </div>
