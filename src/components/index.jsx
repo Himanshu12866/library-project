@@ -16,6 +16,7 @@ export default function IndexPage(){
                  
                     <Route path="/adminDash" element={<AdminDashBoard/>}/>
                     <Route path="/addVideo" element={<AddVideo/>}/>
+                    <Route path="*" element={"<h1>Sorry Not Found</h2>"}></Route>
                     
                     
                 </Routes>

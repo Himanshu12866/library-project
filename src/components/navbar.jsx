@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function NavBar() {
     let navigate = useNavigate();
-    const [cookies, setCookie, removeCookie] = useCookies(["Adminname"]);
+    const [cookies,  removeCookie] = useCookies(["Adminname"]);
     const [admin, setAdmin] = useState("");
 
     useEffect(() => {
@@ -14,7 +14,7 @@ export default function NavBar() {
     }, [cookies]);
 
     function signOut() {
-        removeCookie("Adminname", { path: "/" });
+        removeCookie("Adminname" , {path:"/admin"}) ;
         navigate("/");
     }
 

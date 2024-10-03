@@ -19,14 +19,11 @@ export default function AdminDashBoard() {
 
     }])
     let data = useCookies(["Adminname"])
-    console.log(data)
-    
     function Loadvdo() {
         axios.get("http://127.0.0.1:1234/videos")
             .then(response => {
                 setVdo(response.data)
             }
-
             )
     }
 
@@ -70,7 +67,7 @@ export default function AdminDashBoard() {
                     </ul>
                 </div>
             </nav>
-          
+
 
             <div className="d-flex justify-content-center">
 
@@ -83,7 +80,7 @@ export default function AdminDashBoard() {
                                 <iframe style={{ width: "100%", height: "380px" }} src={item.url} title={item.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                             </div>
                             <div className="col-lg-6" key={item.id} style={{ textAlign: "left" }}>
-                                <div style={{ height: "320px"}}>
+                                <div style={{ height: "320px" }}>
                                     <p className="fs-3"> Name :<span className="fw-bold  fw-bold fs-2"> {item.title}</span></p>
                                     <p className="fs-3">About : <span className="fs-3 fw-bold ">{item.videoName}</span></p>
                                     <p className="fs-3">Title : <span className="fs-3 fw-bold ">{item.title}</span></p>
