@@ -47,6 +47,11 @@ export default function AdminDashBoard() {
                         </li>
                     </ul>
                     <ul className="navbar-nav">
+                    <li className="nav-item">
+                            <p className="nav-item">{
+                                data.map(admin => <i key={admin}>{admin.Adminname}</i>)
+                            }</p>
+                        </li>
 
                         <li className=" nav-item">
                             <Link to="/addVideo" className="btn btn-success  nav-link text-light" title="Add New Videos">
@@ -59,11 +64,7 @@ export default function AdminDashBoard() {
                                 <span className="bi bi-box-arrow-right fs-4"></span>
                             </Link>
                         </li>
-                        <li>
-                            <p>{
-                                data.map(admin => <p key={admin}>{admin.Adminname}</p>)
-                            }</p>
-                        </li>
+                      
                     </ul>
                 </div>
             </nav>
@@ -75,11 +76,11 @@ export default function AdminDashBoard() {
 
                 <div style={{ width: "85%" }}>
                     {
-                        vdo.map(item => <div className="row my-3" style={{ width: "100%", height: "400px" }}>
-                            <div className="col-lg-6" key={item.id}>
+                        vdo.map(item => <div key={item} className="row my-3" style={{ width: "100%", height: "400px" }}>
+                            <div className="col-lg-6" >
                                 <iframe style={{ width: "100%", height: "380px" }} src={item.url} title={item.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                             </div>
-                            <div className="col-lg-6" key={item.id} style={{ textAlign: "left" }}>
+                            <div className="col-lg-6" style={{ textAlign: "left" }}>
                                 <div style={{ height: "320px" }}>
                                     <p className="fs-3"> Name :<span className="fw-bold  fw-bold fs-2"> {item.title}</span></p>
                                     <p className="fs-3">About : <span className="fs-3 fw-bold ">{item.videoName}</span></p>
@@ -91,7 +92,7 @@ export default function AdminDashBoard() {
                                         <p><span className="btn bi bi-people-fill text-light badge bg-warning p-2 fs-5">{item.views}</span></p>
                                     </div>
                                 </div>
-                                <div className="row" key={item.id} >
+                                <div className="row" >
                                     <div className="col-6">
                                         <button className="btn btn-dark w-100 p-2 mt-3">Edit Video Details</button>
                                     </div>

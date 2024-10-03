@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function NavBar() {
     let navigate = useNavigate();
-    const [cookies,  removeCookie] = useCookies(["Adminname"]);
+    const [cookies, setCookie, removeCookie] = useCookies(["Adminname"]);
     const [admin, setAdmin] = useState("");
 
     useEffect(() => {
@@ -13,8 +13,8 @@ export default function NavBar() {
         }
     }, [cookies]);
 
-    function signOut() {
-        removeCookie("Adminname" , {path:"/admin"}) ;
+    function RemoveCookie() {
+        removeCookie("Adminname", { path: "/" }); // Correct usage here
         navigate("/");
     }
 
@@ -57,7 +57,7 @@ export default function NavBar() {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link onClick={signOut} className="nav-link text-light btn btn-danger" title="SignOut">
+                            <Link onClick={RemoveCookie} className="nav-link text-light btn btn-danger" title="SignOut">
                                 <span className="bi bi-box-arrow-right fs-4 m-1"></span>
                             </Link>
                         </li>

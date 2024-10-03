@@ -39,7 +39,7 @@ export default function AddVideo() {
 
     useEffect(() => {
         LoadVdo();
-    }, []);
+    }, [formik]);
 
     return (
         <div className="home-box-1">
