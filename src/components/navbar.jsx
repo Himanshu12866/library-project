@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
-    let navigate = useNavigate();
-    const [cookies, setCookie, removeCookie] = useCookies(["Adminname"]);
+    // let navigate = useNavigate();
+    const [cookies] = useCookies(["Adminname"]);
     const [admin, setAdmin] = useState("");
 
     useEffect(() => {
@@ -13,10 +13,11 @@ export default function NavBar() {
         }
     }, [cookies]);
 
-    function RemoveCookie() {
-        removeCookie("Adminname", { path: "/" }); // Correct usage here
-        navigate("/");
-    }
+    // function RemoveCookie() {
+    //     removeCookie("Adminname", { path: "/" }); // Correct usage here
+    //     navigate("/");
+    // }
+
 
     return (
         <div>
@@ -50,14 +51,15 @@ export default function NavBar() {
                                     <span className="badge bg-dark"><span className="bi bi-person-fill"></span></span> {admin}
                                 </a>
                             </li>
-                        ) : null}
+                        ) : null
+                        }
                         <li className="nav-item">
                             <Link to="/addVideo" className="mx-2 nav-link text-light btn btn-success" title="Add Video">
                                 <span className="bi bi-cloud-plus fs-4 m-1"></span>
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link onClick={RemoveCookie} className="nav-link text-light btn btn-danger" title="SignOut">
+                            <Link to="/" className="nav-link text-light btn btn-danger" title="SignOut">
                                 <span className="bi bi-box-arrow-right fs-4 m-1"></span>
                             </Link>
                         </li>

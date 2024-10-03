@@ -32,7 +32,6 @@ export default function AdminDashBoard() {
         Loadvdo()
     }, [])
     return (
-
         <div className="home-box-1 overflow-x-hidden">
             <nav className="navbar navbar-expand-lg  p-3 bg-dark bg-light">
                 <Link className="navbar-brand text-light fw-bold" to="/">Video Library</Link>
@@ -41,22 +40,19 @@ export default function AdminDashBoard() {
                 </button>
                 <div className="navbar-collapse collapse d-lg-flex justify-content-lg-between" id="list">
                     <ul className="navbar-nav">
-
                         <li className="nav-item">
                             <Link to="" className="nav-link text-light">Admin Dashboard</Link>
                         </li>
                     </ul>
                     <ul className="navbar-nav">
-                    <li className="nav-item">
-                            <p className="nav-item">{
-                                data.map(admin => <i key={admin}>{admin.Adminname}</i>)
+                        <li className="nav-item">
+                            <p className="nav-link">{
+                                data.map(admin => <i className="text-light" key={admin}>{admin.Adminname}</i>)
                             }</p>
                         </li>
-
                         <li className=" nav-item">
                             <Link to="/addVideo" className="btn btn-success  nav-link text-light" title="Add New Videos">
                                 <span className="bi bi-cloud-plus-fill fs-4" ></span>
-
                             </Link>
                         </li>
                         <li className="nav-item">
@@ -64,19 +60,13 @@ export default function AdminDashBoard() {
                                 <span className="bi bi-box-arrow-right fs-4"></span>
                             </Link>
                         </li>
-                      
                     </ul>
                 </div>
             </nav>
-
-
             <div className="d-flex justify-content-center">
-
-
-
                 <div style={{ width: "85%" }}>
                     {
-                        vdo.map(item => <div key={item} className="row my-3" style={{ width: "100%", height: "400px" }}>
+                        vdo.map(item => <div key={item.id} className="row my-3" style={{ width: "100%", height: "400px" }}>
                             <div className="col-lg-6" >
                                 <iframe style={{ width: "100%", height: "380px" }} src={item.url} title={item.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                             </div>
@@ -100,16 +90,11 @@ export default function AdminDashBoard() {
                                         <button className="btn btn-danger w-100 p-2 mt-3">Remove Video</button>
                                     </div>
                                 </div>
-
-
                             </div>
-
-
                         </div>)
                     }
                 </div>
             </div>
         </div>
-
     )
 }

@@ -18,7 +18,7 @@ export default function AdminLogin() {
         axios.get('http://127.0.0.1:1234/admins')
             .then(response => {
                 setAdmin(response.data);
-                console.log(admin);
+           
             })
             .catch(err => console.error(err)); // Added error handling
     }
@@ -31,7 +31,6 @@ export default function AdminLogin() {
         },
         onSubmit: (inputs) => {
             let detail = admin.find(data => data.adminId === parseInt(inputs.adminId) && data.adminPsw === inputs.adminPsw);
-            console.log(detail);
             if (detail) {
                 alert(`Welcome Back ${detail.adminName}`);
                 
