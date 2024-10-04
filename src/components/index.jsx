@@ -16,7 +16,7 @@ export default function IndexPage() {
                     <Route path="/admin" element={<AdminLogin />} />
                     <Route path="/adminDash" element={<AdminDashBoard />} />
                     <Route path="/addVideo" element={<AddVideo />} />
-                    <Route  path="/editVdo/:id" element={<EditVdo/>}/>
+                    <Route  path="/editVdo/:videoId" element={<EditVdo/>}/>
                     <Route path="*" element={"<h1>Sorry Not Found</h2>"}></Route>
                 </Routes>
             </BrowserRouter>

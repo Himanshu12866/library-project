@@ -57,5 +57,16 @@ app.post("/addVdo", (req, res) => {
         })
     })
 })
+app.get("/editVdo/:videoId" , (req , res) => {
+    let videoid = parseInt(req.params.videoId)
+mongoclient.connect(url).then(clientObj => {
+    let db = clientObj.db(dbName)
+    db.collection("videos").find({videoId : videoid}).toArray().then(document => {
+        res.send(document)
+        res.end()
+    })
+})
+
+})
 app.listen(1234)
 console.log("Server Started at http://127.0.0.1:1234")
