@@ -44,7 +44,7 @@ app.post("/addVdo", (req, res) => {
         title: req.body.title,
         dislikes: req.body.dislikes,
         likes: req.body.likes,
-        videoCategory:req.body.videoCategory,
+        videoCategory: req.body.videoCategory,
         views: req.body.views
 
     }
@@ -57,16 +57,39 @@ app.post("/addVdo", (req, res) => {
         })
     })
 })
-app.get("/editVdo/:videoId" , (req , res) => {
+app.get("/editVdo/:videoId", (req, res) => {
     let videoid = parseInt(req.params.videoId)
-mongoclient.connect(url).then(clientObj => {
-    let db = clientObj.db(dbName)
-    db.collection("videos").find({videoId : videoid}).toArray().then(document => {
-        res.send(document)
-        res.end()
+    mongoclient.connect(url).then(clientObj => {
+        let db = clientObj.db(dbName)
+        db.collection("videos").find({ videoId: videoid }).toArray().then(document => {
+            res.send(document)
+            res.end()
+        })
     })
 })
 
+app.put("/editVdo/:videoId", (req, res) => {
+    let videoid = parseInt(req.params.videoId);
+    let video = {
+        
+      videoName: req.body.videoName,
+        url: req.body.url,
+        title: req.body.title,
+        dislikes: req.body.dislikes,
+        likes: req.body.likes,
+        
+        videoCategory: req.body.videoCategory,
+        views: req.body.views
+
+    }
+    mongoclient.connect(url).then(clientObj => {
+        let db = clientObj.db(dbName)
+        db.collection("videos").updateOne({ videoId: videoid }, { $set: video }).then(document => {
+            res.redirect("/adminDash");
+            res.end()
+        })
+    })
 })
+
 app.listen(1234)
 console.log("Server Started at http://127.0.0.1:1234")
