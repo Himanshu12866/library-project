@@ -84,7 +84,7 @@ app.put("/editVdo/:videoId", (req, res) => {
     mongoclient.connect(url).then(clientObj => {
         let db = clientObj.db(dbName)
         db.collection("videos").updateOne({ videoId: videoid }, { $set: video }).then(document => {
-            res.redirect("/adminDash");
+          
             res.end()
         })
     })

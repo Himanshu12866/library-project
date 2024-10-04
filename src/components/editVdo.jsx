@@ -73,7 +73,7 @@ export default function EditVdo() {
                                     <label className="form-label fs-4">Video Id :</label>
                                 </div>
                                 <div className="col-8">
-                                    <input className="form-control" name="videoId" value={formik.values.videoId} onChange={formik.handleChange}></input>
+                                    <input className="form-control"  value={detail[0].videoId} onChange={formik.handleChange}></input>
                                 </div>
                             </div>
                             <div className="row my-1">
@@ -105,7 +105,7 @@ export default function EditVdo() {
                                     <label className="form-label fs-4">Video URL :</label>
                                 </div>
                                 <div className="col-8">
-                                    <input className="form-control" value={formik.values.videoCategory}></input>
+                                    <input className="form-control" name="url" onChange={formik.handleChange} value={formik.values.url}></input>
                                 </div>
                             </div>
                             <div className="row my-1">
