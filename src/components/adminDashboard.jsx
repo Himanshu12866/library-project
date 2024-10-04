@@ -7,6 +7,7 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 
 export default function AdminDashBoard() {
+    const [cookies, removeCookie] = useCookies(["Adminname"]);
     const [vdo, setVdo] = useState([{
         videoId: 0,
         videoName: "",
@@ -18,7 +19,7 @@ export default function AdminDashBoard() {
         views: ""
 
     }])
-    let data = useCookies(["Adminname"])
+
     function Loadvdo() {
         axios.get("http://127.0.0.1:1234/videos")
             .then(response => {
@@ -45,19 +46,20 @@ export default function AdminDashBoard() {
                         </li>
                     </ul>
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <p className="nav-link">{
-                                data.map(admin => <i className="text-light" key={admin.Adminname}>{admin.Adminname}</i>)
-                            }</p>
-                        </li>
+                        <li className="nav-item bg-primary">
+                            <a href="#!" className="nav-link text-light fs-5">
+                                <span className="badge bg-dark">
+                                    <span className="bi bi-person-fill"></span>
+                                </span> {cookies.Adminname}
+                            </a>                        </li>
                         <li className=" nav-item">
-                            <Link to="/addVideo" className="btn btn-success  nav-link text-light" title="Add New Videos">
-                                <span className="bi bi-cloud-plus-fill fs-4" ></span>
+                            <Link to="/addVideo" className="btn btn-success mx-2 nav-link text-light" title="Add New Videos">
+                                <span className="bi bi-cloud-plus fs-4 m-1" ></span>
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link to="" className="nav-link text-light">
-                                <span className="bi bi-box-arrow-right fs-4"></span>
+                                <span className="bi bi-box-arrow-right fs-4 m-1"></span>
                             </Link>
                         </li>
                     </ul>
