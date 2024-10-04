@@ -4,16 +4,18 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function NavBar() {
     let navigate = useNavigate();
-    const [cookies,  removeCookie] = useCookies(["Adminname"]); // Correctly destructuring useCookies
+    const [cookies, , removeCookie] = useCookies(["Adminname"]); // Correctly destructuring useCookies
     const [admin, setAdmin] = useState("");
    
     useEffect(() => {
         if (cookies.Adminname) {
-            setAdmin(cookies.AdminName); // Ensure admin is a string or valid JSX content
+            setAdmin(cookies.Adminname); // Ensure admin is a string or valid JSX content
         }
      
     }, [cookies]);
-    
+    // useEffect(() => {
+    //     RemoveCookie()
+    // })
     function RemoveCookie() {
         removeCookie("Adminname", { path: "/" });
         navigate("/");

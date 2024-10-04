@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {useCookies} from "react-cookie";
+import useCapcha from "../Hooks/capcha";
 
 export default function AdminLogin() {
     const [admin, setAdmin] = useState([]);
@@ -14,6 +15,7 @@ export default function AdminLogin() {
     const [ type , setType] = useState("password");
     const [ eye , setEye] = useState("bi bi-eye-slash")
     let navigate = useNavigate();
+    let code = useCapcha()
 
     function ChangeType(){
        if(type === "password"){
@@ -90,7 +92,7 @@ export default function AdminLogin() {
                                 <span onClick={ChangeType} className= {`input-group-text bg-dark text-light  ${eye}`}></span>
                             </div>
                             <label className="form-label fs-3 fw-bold">Enter Captcha:</label>
-                            <input type="text" className="form-control" />
+                            <input type="text" className="form-control" value={code} />
                             <button type="submit" className="btn btn-dark w-100 my-3">Login</button>
                         </form>
                     </div>
