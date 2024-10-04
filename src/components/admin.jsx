@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import useCapcha from "../Hooks/capcha";
+import * as yup from "yup"
 
 export default function AdminLogin() {
     const [admin, setAdmin] = useState([]);
@@ -15,7 +16,8 @@ export default function AdminLogin() {
     const [type, setType] = useState("password");
     const [eye, setEye] = useState("bi bi-eye-slash")
     let navigate = useNavigate();
-    let code = useCapcha()
+    const [otp, setOtp] = useState("")
+
 
     function ChangeType() {
         if (type === "password") {
@@ -37,12 +39,21 @@ export default function AdminLogin() {
             .catch(err => console.error(err)); // Added error handling
     }
 
+    const validationSchema = yup.object({
+        adminId:yup.number().required("Please Enter the Id"),
+        adminPsw:yup.string().required("Please enter valid password").min(6).max(12),
+      inputOtp: yup.string().required("Please Enter the Captcha").test("captcha-match", "Please enter the correct code", (value) => value === otp) // Custom validation for Captcha
+
+    })
     // Set up the form handling with Formik
     let formik = useFormik({
         initialValues: {
             adminId: 0,
-            adminPsw: ""
+            adminPsw: "",
+            inputOtp: "",
         },
+        validationSchema: validationSchema,
+      
         onSubmit: (inputs) => {
             let detail = admin.find(data => data.adminId === parseInt(inputs.adminId) && data.adminPsw === inputs.adminPsw);
             if (detail) {
@@ -57,9 +68,14 @@ export default function AdminLogin() {
             }
         }
     });
+    function Generate() {
+        let code = useCapcha()
+        setOtp(code)
+    }
 
     // Load admin data on component mount
     useEffect(() => {
+        Generate()
         LoadAdmins();
     }, []); // Empty dependency array ensures this runs once on mount
 
@@ -80,6 +96,8 @@ export default function AdminLogin() {
                                 onChange={formik.handleChange}
                                 value={formik.values.adminId} // Added value to bind input with formik
                             />
+                            <span className="text-danger">{formik.errors.adminId}</span>
+                            <br></br>
                             <label className="form-label fw-bold fs-3">Password :</label>
                             <div className="input-group">
                                 <input
@@ -89,16 +107,18 @@ export default function AdminLogin() {
                                     name="adminPsw"
                                     value={formik.values.adminPsw} // Added value to bind input with formik
                                 />
-                                <span onClick={ChangeType} className={`input-group-text bg-dark text-light  ${eye}`}></span>
+                                <span onClick={ChangeType} className={`input-group-text btn bg-dark text-light  ${eye}`}></span>
                             </div>
+                            <span className="text-danger">{formik.errors.adminPsw}</span>
                             <div className="d-flex justify-content-between align-items-center">
                                 <label className="form-label fs-3 fw-bold">Enter Captcha:</label>
                                 <div className="input-group w-25">
-                                    <input className="form-control" value={code} />
-                                    <span className="input-group-text bg-dark text-light bi bi-arrow-clockwise"></span>
+                                    <input className="form-control" name="captcha" value={otp} />
+                                    <span onClick={Generate} className="input-group-text btn bg-dark text-light bi bi-arrow-clockwise"></span>
                                 </div>
                             </div>
-                            <input type="text" className="form-control" />
+                            <input type="text" className="form-control" name="inputOtp" onChange={formik.handleChange}  />
+                            <span className="text-danger">{formik.errors.inputOtp}</span>
                             <button type="submit" className="btn btn-dark w-100 my-3">Login</button>
                         </form>
                     </div>
