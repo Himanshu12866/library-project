@@ -6,33 +6,33 @@ import "../styles/home2.css";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {useCookies} from "react-cookie";
+import { useCookies } from "react-cookie";
 import useCapcha from "../Hooks/capcha";
 
 export default function AdminLogin() {
     const [admin, setAdmin] = useState([]);
-    const [cookies, setCookie ] = useCookies(["Adminname"]); 
-    const [ type , setType] = useState("password");
-    const [ eye , setEye] = useState("bi bi-eye-slash")
+    const [cookies, setCookie] = useCookies(["Adminname"]);
+    const [type, setType] = useState("password");
+    const [eye, setEye] = useState("bi bi-eye-slash")
     let navigate = useNavigate();
     let code = useCapcha()
 
-    function ChangeType(){
-       if(type === "password"){
-        setType("text")
-        setEye("bi bi-eye")
-       }
-       else{
-        setType("password")
-        setEye("bi bi-eye-slash")
-       }
+    function ChangeType() {
+        if (type === "password") {
+            setType("text")
+            setEye("bi bi-eye")
+        }
+        else {
+            setType("password")
+            setEye("bi bi-eye-slash")
+        }
     }
     // Fetch admin data from the server
     function LoadAdmins() {
         axios.get('http://127.0.0.1:1234/admins')
             .then(response => {
                 setAdmin(response.data);
-           
+
             })
             .catch(err => console.error(err)); // Added error handling
     }
@@ -47,10 +47,10 @@ export default function AdminLogin() {
             let detail = admin.find(data => data.adminId === parseInt(inputs.adminId) && data.adminPsw === inputs.adminPsw);
             if (detail) {
                 alert(`Welcome Back ${detail.adminName}`);
-                
+
                 // Set a cookie to store the admin name
                 setCookie("Adminname", detail.adminName, { path: "/adminDash" }); // Added path to ensure the cookie is accessible across the app
-               
+
                 navigate("/adminDash"); // Navigate to admin dashboard
             } else {
                 alert("Admin Not Found");
@@ -61,7 +61,7 @@ export default function AdminLogin() {
     // Load admin data on component mount
     useEffect(() => {
         LoadAdmins();
-    },[]); // Empty dependency array ensures this runs once on mount
+    }, []); // Empty dependency array ensures this runs once on mount
 
     return (
         <div className="home-box-1">
@@ -89,10 +89,16 @@ export default function AdminLogin() {
                                     name="adminPsw"
                                     value={formik.values.adminPsw} // Added value to bind input with formik
                                 />
-                                <span onClick={ChangeType} className= {`input-group-text bg-dark text-light  ${eye}`}></span>
+                                <span onClick={ChangeType} className={`input-group-text bg-dark text-light  ${eye}`}></span>
                             </div>
-                            <label className="form-label fs-3 fw-bold">Enter Captcha:</label>
-                            <input type="text" className="form-control" value={code} />
+                            <div className="d-flex justify-content-between align-items-center">
+                                <label className="form-label fs-3 fw-bold">Enter Captcha:</label>
+                                <div className="input-group w-25">
+                                    <input className="form-control" value={code} />
+                                    <span className="input-group-text bg-dark text-light bi bi-arrow-clockwise"></span>
+                                </div>
+                            </div>
+                            <input type="text" className="form-control" />
                             <button type="submit" className="btn btn-dark w-100 my-3">Login</button>
                         </form>
                     </div>
