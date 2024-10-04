@@ -77,7 +77,6 @@ app.put("/editVdo/:videoId", (req, res) => {
         title: req.body.title,
         dislikes: req.body.dislikes,
         likes: req.body.likes,
-        
         videoCategory: req.body.videoCategory,
         views: req.body.views
 

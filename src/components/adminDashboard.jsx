@@ -28,7 +28,6 @@ export default function AdminDashBoard() {
             )
     }
 console.log(removeCookie)
-    // let data = useCookies()
     useEffect(() => {
         Loadvdo()
     }, [])
