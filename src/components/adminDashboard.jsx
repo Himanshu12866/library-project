@@ -27,7 +27,7 @@ export default function AdminDashBoard() {
             }
             )
     }
-
+console.log(removeCookie)
     // let data = useCookies()
     useEffect(() => {
         Loadvdo()
@@ -86,7 +86,7 @@ export default function AdminDashBoard() {
                                 </div>
                                 <div className="row" >
                                     <div className="col-6">
-                                        <button className="btn btn-dark w-100 p-2 mt-3">Edit Video Details</button>
+                                        <Link to={ `/editVdo/${item.videoId}`} className="btn btn-dark w-100 p-2 mt-3">Edit Video Details</Link>
                                     </div>
                                     <div className="col-6">
                                         <button className="btn btn-danger w-100 p-2 mt-3">Remove Video</button>
