@@ -5,8 +5,10 @@ import AdminDashBoard from "./adminDashboard";
 import AddVideo from "./addVdo";
 import EditVdo from "./editVdo";
 // import Home2 from "./home2";
+// import { useCookies } from "react-cookie";
 
 export default function IndexPage() {
+    // const [cookies, setCookie, removeCookie] = useCookies(["Adminname"]);
 
     return (
         <div>
@@ -16,7 +18,7 @@ export default function IndexPage() {
                     <Route path="/admin" element={<AdminLogin />} />
                     <Route path="/adminDash" element={<AdminDashBoard />} />
                     <Route path="/addVideo" element={<AddVideo />} />
-                    <Route  path="/editVdo/:videoId" element={<EditVdo/>}/>
+                    <Route path="/editVdo/:videoId" element={<EditVdo />} />
                     <Route path="*" element={"<h1>Sorry Not Found</h2>"}></Route>
                 </Routes>
             </BrowserRouter>

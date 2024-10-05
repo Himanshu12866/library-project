@@ -1,12 +1,13 @@
 // import NavBar from "./navbar";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 import axios from "axios";
 import { useCookies } from "react-cookie";
 
 export default function AdminDashBoard() {
+    let navigate = useNavigate()
     const [cookies, removeCookie] = useCookies(["Adminname"]);
     const [vdo, setVdo] = useState([{
         videoId: 0,
@@ -27,10 +28,17 @@ export default function AdminDashBoard() {
             }
             )
     }
-console.log(removeCookie)
+    
+
     useEffect(() => {
         Loadvdo()
     }, [])
+
+    function RemoveCookie() {
+        removeCookie("Adminname", { path: "/" });
+        navigate("/");
+    }
+
     return (
         <div className="home-box-1 overflow-x-hidden">
             <nav className="navbar navbar-expand-lg  p-3 bg-dark bg-light">
@@ -57,9 +65,9 @@ console.log(removeCookie)
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="" className="nav-link text-light">
+                            <button onClick={RemoveCookie} className="nav-link text-light">
                                 <span className="bi bi-box-arrow-right fs-4 m-1"></span>
-                            </Link>
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -85,7 +93,7 @@ console.log(removeCookie)
                                 </div>
                                 <div className="row" >
                                     <div className="col-6">
-                                        <Link to={ `/editVdo/${item.videoId}`} className="btn btn-dark w-100 p-2 mt-3">Edit Video Details</Link>
+                                        <Link to={`/editVdo/${item.videoId}`} className="btn btn-dark w-100 p-2 mt-3">Edit Video Details</Link>
                                     </div>
                                     <div className="col-6">
                                         <button className="btn btn-danger w-100 p-2 mt-3">Remove Video</button>
