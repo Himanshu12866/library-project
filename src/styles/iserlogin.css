@@ -1,9 +1,10 @@
 .home-box-1 #CardId {
   margin-top: 80px;
+  margin-bottom: 50px;
   color: white;
   background-color: transparent;
   backdrop-filter: blur(5px);
-  height: 500px;
+  height: auto 580px;
 }
 .home-box-1 #CardId .card-header {
   font-size: 40px;

@@ -71,8 +71,8 @@ app.get("/editVdo/:videoId", (req, res) => {
 app.put("/editVdo/:videoId", (req, res) => {
     let videoid = parseInt(req.params.videoId);
     let video = {
-        
-      videoName: req.body.videoName,
+
+        videoName: req.body.videoName,
         url: req.body.url,
         title: req.body.title,
         dislikes: req.body.dislikes,
@@ -84,7 +84,24 @@ app.put("/editVdo/:videoId", (req, res) => {
     mongoclient.connect(url).then(clientObj => {
         let db = clientObj.db(dbName)
         db.collection("videos").updateOne({ videoId: videoid }, { $set: video }).then(document => {
-          
+
+            res.end()
+        })
+    })
+})
+
+app.post("/newuser", (req, res) => {
+    let user = {
+        name: req.body.name,
+        username: req.body.username,
+        email: req.body.email,
+        userpsw: req.body.userpsw
+       
+    }
+    mongoclient.connect(url).then(clientObj => {
+        let db = clientObj.db(dbName)
+        db.collection("user").insertOne(user).then(document => {
+            res.send("Registered");
             res.end()
         })
     })

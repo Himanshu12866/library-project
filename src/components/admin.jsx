@@ -34,15 +34,14 @@ export default function AdminLogin() {
         axios.get('http://127.0.0.1:1234/admins')
             .then(response => {
                 setAdmin(response.data);
-
             })
             .catch(err => console.error(err)); // Added error handling
     }
 
     const validationSchema = yup.object({
-        adminId:yup.number().required("Please Enter the Id"),
-        adminPsw:yup.string().required("Please enter valid password").min(6).max(12),
-      inputOtp: yup.string().required("Please Enter the Captcha").test("captcha-match", "Please enter the correct code", (value) => value === otp) // Custom validation for Captcha
+        adminId: yup.number().required("Please Enter the Id"),
+        adminPsw: yup.string().required("Please enter valid password").min(6).max(12),
+        inputOtp: yup.string().required("Please Enter the Captcha").test("captcha-match", "Please enter the correct code", (value) => value === otp) // Custom validation for Captcha
 
     })
     // Set up the form handling with Formik
@@ -53,15 +52,12 @@ export default function AdminLogin() {
             inputOtp: "",
         },
         validationSchema: validationSchema,
-      
+
         onSubmit: (inputs) => {
             let detail = admin.find(data => data.adminId === parseInt(inputs.adminId) && data.adminPsw === inputs.adminPsw);
             if (detail) {
                 alert(`Welcome Back ${detail.adminName}`);
-
-                // Set a cookie to store the admin name
-                setCookie("Adminname", detail.adminName, { path: "/adminDash" }); // Added path to ensure the cookie is accessible across the app
-
+                // Set a cookie to store the admin name        setCookie("Adminname", detail.adminName, { path: "/adminDash" }); // Added path to ensure the cookie is accessible across the app
                 navigate("/adminDash"); // Navigate to admin dashboard
             } else {
                 alert("Admin Not Found");
@@ -117,7 +113,7 @@ export default function AdminLogin() {
                                     <span onClick={Generate} className="input-group-text btn bg-dark text-light bi bi-arrow-clockwise"></span>
                                 </div>
                             </div>
-                            <input type="text" className="form-control" name="inputOtp" onChange={formik.handleChange}  />
+                            <input type="text" className="form-control" name="inputOtp" onChange={formik.handleChange} />
                             <span className="text-danger">{formik.errors.inputOtp}</span>
                             <button type="submit" className="btn btn-dark w-100 my-3">Login</button>
                         </form>
