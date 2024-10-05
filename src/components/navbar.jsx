@@ -42,7 +42,7 @@ export default function NavBar() {
                                 <Link to="/admin" className="nav-link text-light">Admin Login</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="" className="nav-link text-light">User Login</Link>
+                                <Link to="/userlogin" className="nav-link text-light">User Login</Link>
                             </li>
                         </ul>
                     )}
