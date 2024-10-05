@@ -78,7 +78,7 @@ export default function AdminLogin() {
     return (
         <div className="home-box-1">
             <NavBar />
-            <div className="input-box">
+            <div className="input-box" style={{backdropFilter:"blur(5px)"}}>
                 <div className="card w-100 text-light" style={{ backgroundColor: "transparent" }}>
                     <h1>Admin Login</h1>
                     <hr style={{ height: "5px", backgroundColor: "white" }} />

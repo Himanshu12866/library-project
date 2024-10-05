@@ -1,8 +1,9 @@
 
 import { useEffect, useState } from "react"
 import useCapcha from "../Hooks/capcha"
-import "../styles/iserlogin.css";
+import "../styles/userlogin.css";
 import { Link } from "react-router-dom";
+import Navbar from "./navbar"
 export default function UserLogin() {
     const [otp, setOtp] = useState("");
     const [type, setType] = useState("password")
@@ -25,7 +26,9 @@ export default function UserLogin() {
         Generate()
     }, [])
     return (
-        <div className="home-box-1 d-flex justify-content-center ">
+        <div className="home-box-1">
+        <Navbar/>
+        <div className="d-flex justify-content-center">
             <div className="card w-50" id="CardId" >
                 <div className="card-header text-light"> <span className="bi bi-person-fill">&nbsp;</span> User Login</div>
                 <form>
@@ -78,6 +81,7 @@ export default function UserLogin() {
                     </div>
                 </div>
 
+            </div>
             </div>
 
 
