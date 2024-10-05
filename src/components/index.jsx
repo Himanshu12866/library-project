@@ -4,11 +4,9 @@ import AdminLogin from "./admin";
 import AdminDashBoard from "./adminDashboard";
 import AddVideo from "./addVdo";
 import EditVdo from "./editVdo";
-// import Home2 from "./home2";
-// import { useCookies } from "react-cookie";
+
 
 export default function IndexPage() {
-    // const [cookies, setCookie, removeCookie] = useCookies(["Adminname"]);
 
     return (
         <div>

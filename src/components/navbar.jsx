@@ -13,10 +13,9 @@ export default function NavBar() {
         }
      
     }, [cookies]);
-    // useEffect(() => {
-    //     RemoveCookie()
-    // })
+
     function RemoveCookie() {
+        console.log(admin)
         removeCookie("Adminname", { path: "/" });
         navigate("/");
     }

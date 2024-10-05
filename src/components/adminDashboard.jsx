@@ -8,7 +8,7 @@ import { useCookies } from "react-cookie";
 
 export default function AdminDashBoard() {
     let navigate = useNavigate()
-    const [cookies, removeCookie] = useCookies(["Adminname"]);
+    const [cookies, ,removeCookie] = useCookies(["Adminname"]);
     const [vdo, setVdo] = useState([{
         videoId: 0,
         videoName: "",
@@ -25,14 +25,13 @@ export default function AdminDashBoard() {
         axios.get("http://127.0.0.1:1234/videos")
             .then(response => {
                 setVdo(response.data)
-            }
-            )
+            })
     }
-    
+
 
     useEffect(() => {
         Loadvdo()
-    }, [])
+    }, [cookies])
 
     function RemoveCookie() {
         removeCookie("Adminname", { path: "/" });
