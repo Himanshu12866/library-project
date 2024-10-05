@@ -69,7 +69,7 @@ export default function UserLogin() {
                 <div className="card-footer">
                     <div className="row">
                         <div className="col-lg-6">
-                            <Link to="" className="form-label text-light">Create A New Account ?</Link>
+                            <Link to="/newuser" className="form-label text-light">Create A New Account ?</Link>
                         </div>
                         <div className="col-lg-6">
                             <Link to="" className="form-label text-light">Forgot Password?</Link>
