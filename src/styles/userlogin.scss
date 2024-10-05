@@ -1,8 +1,40 @@
 .home-box-1 {
     #CardId {
+        margin-top: 80px;
         color: white;
         background-color: transparent;
         backdrop-filter: blur(5px);
-        height: 300px;
+        height: 500px;
+
+        .card-header {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        form {
+            margin-top: 20px;
+
+            .card-body {
+                margin-top: 20px;
+
+                .row {
+                    margin-top: 20px;
+
+                    .col-lg-6 {
+                        label {
+                            font-size: 20px;
+                            font-weight: bold;
+                            
+                        }
+
+                        input {
+                            background-color: transparent;
+                            border: 3px solid red;
+                        }
+                     
+                    }
+                }
+            }
+        }
     }
 }
