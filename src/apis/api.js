@@ -106,6 +106,15 @@ app.post("/newuser", (req, res) => {
         })
     })
 })
+app.get("/userdetails" , (req,res) => {
+    mongoclient.connect(url).then(clientObj => {
+        let db= clientObj.db(dbName)
+        db.collection("user").find({}).toArray().then(document => {
+            res.send(document)
+            res.end()
+        })
+    })
+})
 
 app.listen(1234)
 console.log("Server Started at http://127.0.0.1:1234")

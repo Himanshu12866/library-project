@@ -57,7 +57,7 @@ export default function AdminLogin() {
             let detail = admin.find(data => data.adminId === parseInt(inputs.adminId) && data.adminPsw === inputs.adminPsw);
             if (detail) {
                 alert(`Welcome Back ${detail.adminName}`);
-                // Set a cookie to store the admin name        setCookie("Adminname", detail.adminName, { path: "/adminDash" }); // Added path to ensure the cookie is accessible across the app
+                setCookie("Adminname", detail.adminName, { path: "/adminDash" }); // Added path to ensure the cookie is accessible across the app
                 navigate("/adminDash"); // Navigate to admin dashboard
             } else {
                 alert("Admin Not Found");
@@ -78,7 +78,7 @@ export default function AdminLogin() {
     return (
         <div className="home-box-1">
             <NavBar />
-            <div className="input-box" style={{backdropFilter:"blur(5px)"}}>
+            <div className="input-box" style={{ backdropFilter: "blur(5px)" }}>
                 <div className="card w-100 text-light" style={{ backgroundColor: "transparent" }}>
                     <h1>Admin Login</h1>
                     <hr style={{ height: "5px", backgroundColor: "white" }} />
