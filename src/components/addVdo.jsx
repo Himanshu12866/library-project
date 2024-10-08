@@ -118,7 +118,7 @@ export default function AddVideo() {
                                     </div>
                                 </div>
                                 <button type="submit" className="btn w-50 btn-success">Submit</button>
-                                <Link to="/adminDashboard" className="btn w-50 btn-dark">Cancel</Link>
+                                <Link to="/adminDash" className="btn w-50 btn-dark">Cancel</Link>
                             </form>
                         </div>
                     </div>
