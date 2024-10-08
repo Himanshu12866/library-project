@@ -122,14 +122,10 @@ export default function UserLogin() {
                             <div className="col-lg-6">
                                 <Link to="" className="form-label text-light">Forgot Password?</Link>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
-
-
         </div>
     )
 }
