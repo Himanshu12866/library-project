@@ -1,9 +1,10 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import axios from "axios";
 // import { response } from "express";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
-// import NavBar from "./navbar";
+
 
 
 export default function UserDash() {
@@ -59,16 +60,16 @@ export default function UserDash() {
         navigate("/")
     }
     return (
-        <div className="home-box-1">
+        <div className="home-box-1 overflow-y-scroll">
             <nav className="navbar navbar-expand-lg bg-dark p-2 ">
-                <Link to="/" className="navbar-brand text-light fw-bold" href="$" >Video Library</Link>
+                <Link  className="navbar-brand text-light fw-bold" href="$" >Video Library</Link>
                 <button className="navbar-toggler">
                     <span className="bi bi-list text-light"></span>
                 </button>
                 <div className="navbar-collapse collapse d-flex justify-content-between mx-3" id="#list">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link text-light" href="d">User Dashboard</a>
+                            <a className="nav-link text-light ">User Dashboard</a>
                         </li>
                     </ul>
                     <ul className="navbar-nav">
@@ -81,17 +82,17 @@ export default function UserDash() {
                             <span className=" bi bi-person-fill fs-4 nav-link text-light"></span>
                         </li>
                         <li className="nav-item">
-                            <span className="nav-link text-light bi bi-folder-plus fs-4 fw-bold"></span>
+                            <span className="nav-link text-light bi bi-clock-fill m-1 fs-4 fw-bold"></span>
                         </li>
                         <li className="nav-item ">
-                            <span onClick={Logout} title="Logout" style={{ cursor: "pointer" }} className=" bi bi-box-arrow-right fs-4  nav-link text-light"></span>
+                            <span onClick={Logout} title="Logout" style={{ cursor: "pointer" }} className=" bi bi-box-arrow-right fs-4 m-1  nav-link text-light"></span>
                         </li>
                     </ul>
                 </div>
             </nav>
             <div className="modal fade" id="modal-box">
                 <div className="modal-dialog" >
-                    <div className="modal-content" style={{ backgroundColor: "transparent" }}>
+                    <div className="modal-content" style={{ backgroundColor: "rgb(0,0,0)" }}>
                         <div className="modal-header" style={{ backgroundColor: "transparent" }}>
                             <h3>User Details</h3>
                             <button className="btn btn-close bg-light text-light fs-6" style={{ color: "white" }} data-bs-dismiss="modal">
@@ -99,26 +100,23 @@ export default function UserDash() {
                         </div>
                         <div className="modal-body">
                             <div className="row my-3">
-                                <div className="col-6"><span className="bi bi-person-fill fs-2"></span></div>
-                                <div className="col-6 fs-5">{user.name}</div>
+                                <div className="col-4" title="Name"><span className="bi bi-person-fill fs-2"></span></div>
+                                <div className="col-8 fs-5">{user.name}</div>
 
                             </div>
                             <hr></hr>
                             <div className="row my-3">
-                                <div className="col-6"><span className="bi bi-envelope-at-fill fs-2"></span></div>
-                                <div className="col-6 fs-5">{user.username}</div>
+                                <div className="col-4" title="User ID"><span className="bi bi-exclamation-square-fill fs-2"></span></div>
+                                <div className="col-8 fs-5">{user.username}</div>
 
                             </div>
                             <hr></hr>
                             <div className="row my-3">
-                                <div className="col-6"><span className="bi bi-at fs-2"></span></div>
-                                <div className="col-6 fs-5">{user.email}</div>
+                                <div className="col-4" title="User Email"><span className="bi bi-at fs-2"></span></div>
+                                <div className="col-8 fs-5">{user.email}</div>
 
                             </div>
                             <hr></hr>
-
-
-
                         </div>
                         <div className="modal-footer">
                             <button className="btn btn-warning w-100" data-bs-dismiss="modal">Clsoe</button>

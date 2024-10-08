@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function NavBar() {
     let navigate = useNavigate();
-    const [cookies, , removeCookie] = useCookies(["Adminname"]); // Correctly destructuring useCookies
+    const [cookies, , removeCookie] = useCookies(["Adminname" , "UserId"]); // Correctly destructuring useCookies
     const [admin, setAdmin] = useState("");
    
     useEffect(() => {
@@ -30,7 +30,7 @@ export default function NavBar() {
                     <span className="bi bi-list text-light"></span>
                 </button>
                 <div className="navbar-collapse collapse d-lg-flex justify-content-lg-between" id="list">
-                    {cookies.Adminname ? (
+                    {cookies.Adminname  ? (
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <Link to="/adminDash" className="nav-link text-light">Admin Dashboard</Link>
@@ -46,6 +46,7 @@ export default function NavBar() {
                             </li>
                         </ul>
                     )}
+                    
                     <ul className="navbar-nav">
                         {cookies.Adminname ? (
                             <div className="d-flex ">
@@ -68,8 +69,7 @@ export default function NavBar() {
                             </button>
                         </li>
                         </div>
-                        ) : null}
-                        
+                        ) : null}     
                     </ul>
                 </div>
             </nav>
