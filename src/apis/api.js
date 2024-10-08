@@ -89,6 +89,17 @@ app.put("/editVdo/:videoId", (req, res) => {
         })
     })
 })
+app.get("/deleteVdo/:videoId", (req, res) => {
+
+    let videoid = parseInt(req.params.videoId);
+   
+    mongoclient.connect(url).then(clientObj => {
+        let db = clientObj.db(dbName)
+        db.collection("videos").find({ videoId: videoid }).toArray().then(document => {
+            res.end()
+        })
+    })
+})
 
 app.post("/newuser", (req, res) => {
     let user = {

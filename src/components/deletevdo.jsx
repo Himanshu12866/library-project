@@ -1,0 +1,88 @@
+/* eslint-disable jsx-a11y/no-distracting-elements */
+import axios from "axios"
+// import { useFormik } from ""
+import { useEffect, useState } from "react"
+import { Link, useNavigate, useParams } from "react-router-dom"
+
+export default function DeletVdo() {
+
+    let params = useParams()
+    let videoId = parseInt(params.videoId)
+    
+    // let navigate = useNavigate()
+    
+    const [detail, setDetail] = useState([{
+        videoId: 0,
+        videoName: "",
+        title: "",
+        videoCategory: "",
+        url: "",
+        dislikes: "",
+        likes: "",
+        views: ""
+        
+    }]);
+    function LoadVideo() {
+     
+        axios.get(`http://127.0.0.1:1234/deleteVdo/${videoId}`)
+            .then(response => {
+                setDetail(response.data)
+                console.log(detail)
+            })
+    }
+    useEffect(() => {
+        LoadVideo()
+    } , [])
+    // const name = detail[0].videoName;
+
+
+    // let  = useFormik({
+
+    //     enableReinitialize: true,
+    //     initialValues: {
+    //         videoId: detail[0].videoId,
+    //         videoName: detail[0].videoName,
+    //         title: detail[0].title,
+    //         videoCategory: detail[0].videoCategory,
+    //         url: detail[0].url,
+    //         dislikes: detail[0].dislikes,
+    //         likes: detail[0].likes,
+    //         views: detail[0].views
+    //     },
+    //     onSubmit: (value) => {
+    //         axios.put(`http://127.0.0.1:1234/editVdo/${videoId}`,  value)
+    //         .then(() => {
+    //             alert("Video Updataed Successfully")    
+    //             navigate("/adminDash")
+    //         })
+    //     }
+    // })
+
+    return (
+        <div className="home-box-1 p-2">
+            <h1 className="bg-dark text-light p-2">Delete Video</h1>
+
+            {/* {
+                detail.map(vdo =>
+
+                    <div className="d-flex justify-content-center w-100">
+
+                        <div className="row my-1 w-75">
+                            <div className="col-lg-5">
+                                <iframe src={vdo.url} title="video" style={{ width: "400px", height: "350px" }}></iframe>
+                                <Link to="/adminDash" className="btn btn-warning w-100 p-2" style={{ marginTop: "30px" }}>Cancel</Link>
+                            </div>
+                            <div className="col-lg-7 tex-left">
+
+                            </div>
+                        </div>
+                    </div>
+                )
+            } */}
+            <p>{detail.url}</p>
+        </div>
+    )
+}
+
+
+

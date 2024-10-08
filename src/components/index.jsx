@@ -7,6 +7,7 @@ import EditVdo from "./editVdo";
 import UserLogin from "./userLogin";
 import RegisterUser from "./registeruser";
 import UserDash from "./userDashboard";
+import DeletVdo from "./deletevdo";
 
 
 export default function IndexPage() {
@@ -23,6 +24,7 @@ export default function IndexPage() {
                     <Route path="/editVdo/:videoId" element={<EditVdo />} />
                     <Route path="/newuser" element={<RegisterUser/>} />
                     <Route path="/userDash" element={<UserDash/>}/>
+                    <Route path="/deleteVdo/:videoId" element={<DeletVdo/>} />
                     <Route path="*" element={"<h1>Sorry Not Found</h2>"}></Route>
                 </Routes>
             </BrowserRouter>
