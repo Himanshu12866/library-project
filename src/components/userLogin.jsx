@@ -7,11 +7,13 @@ import Navbar from "./navbar"
 import axios from "axios";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { useCookies } from "react-cookie";
 export default function UserLogin() {
     const [otp, setOtp] = useState("");
     const [type, setType] = useState("password")
     const [eye, setEye] = useState("bi bi-eye-slash-fill")
-    const [user, setUser] = useState([])
+    const [user, setUser] = useState([]);
+    const [cookies , setCookie , ] = useCookies(["Username"])
     function Generate() {
         let code = useCapcha()
         setOtp(code)
@@ -56,6 +58,7 @@ export default function UserLogin() {
             let detail = user.find(data => data.email === values.useremail && data.userpsw === values.userpsw )
             if(detail){
                 alert(`Login Success\n WELCOME ${detail.name} `);
+                setCookie("Username" , detail.name , {path:"/useDash"})
                 navigate("/userDash")
             }
             else{
