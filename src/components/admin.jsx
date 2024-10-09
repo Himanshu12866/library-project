@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import useCapcha from "../Hooks/capcha";
 import * as yup from "yup"
+import "../styles/admin.css"
 
 export default function AdminLogin() {
     const [admin, setAdmin] = useState([]);
@@ -107,9 +108,9 @@ export default function AdminLogin() {
                             </div>
                             <span className="text-danger">{formik.errors.adminPsw}</span>
                             <div className="d-flex justify-content-between align-items-center">
-                                <label className="form-label fs-3 fw-bold">Enter Captcha:</label>
-                                <div className="input-group w-25">
-                                    <input className="form-control" name="captcha" value={otp} />
+                                <label className="form-label fs-3 fw-bold" id="CaptchaLable">Enter Captcha:</label>
+                                <div className="input-group w-50">
+                                    <input className="form-control" id="CaptchaId" name="captcha" value={otp} />
                                     <span onClick={Generate} className="input-group-text btn bg-dark text-light bi bi-arrow-clockwise"></span>
                                 </div>
                             </div>

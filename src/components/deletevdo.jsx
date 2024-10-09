@@ -142,9 +142,7 @@ export default function DeletVdo() {
                         </div>
                         </div>
                     )
-                }
-
-            
+                }     
         </div>
     )
 }

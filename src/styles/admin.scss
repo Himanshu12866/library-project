@@ -1,0 +1,22 @@
+@media(max-width:500px) {
+    .home-box-1 {
+        .input-box {
+            width: 90%;
+            .card {
+                .card-body {
+                    form {
+                        #CaptchaLable {
+                            width: 200px;
+                        }
+                        .input-group {
+                            margin-bottom: 10px;
+                            #CaptchaId {
+                                width: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

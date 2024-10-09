@@ -1,0 +1,16 @@
+@media (max-width: 500px) {
+  .home-box-1 .input-box {
+    width: 90%;
+  }
+  .home-box-1 .input-box .card .card-body form #CaptchaLable {
+    width: 200px;
+  }
+  .home-box-1 .input-box .card .card-body form .input-group {
+    margin-bottom: 10px;
+  }
+  .home-box-1 .input-box .card .card-body form .input-group #CaptchaId {
+    width: 30px;
+  }
+}
+
+/*# sourceMappingURL=admin.css.map */
