@@ -1,0 +1,56 @@
+#EditVdo{
+    .editBox{
+        .row{
+            .col-lg-5{
+                iframe{
+                    width: 420px;
+                    height: 350px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:500px) {
+    #EditVdo {
+        height: auto;
+
+        .editBox {
+            .row{
+                width: 100% !important;
+                margin-left: 2px;
+                .col-lg-5{
+                    width: 100% !important;
+                    iframe{
+                        width: 100%;
+                        height: 200px;
+                    }
+                }
+                .col-lg-7{
+                    form{
+                        margin-top: 20px;
+                        button{
+                            margin-top: 20px;
+                        }
+                        .row{
+                            .col-4
+                            {
+                                label{
+                                    font-size: 13px !important;
+                                    font-weight: bolder;
+                                }
+                            }
+                            .col-8{
+                                input{
+                                    font-weight: bold !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+}

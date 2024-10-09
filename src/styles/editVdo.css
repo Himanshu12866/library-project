@@ -1,0 +1,36 @@
+#EditVdo .editBox .row .col-lg-5 iframe {
+  width: 420px;
+  height: 350px;
+}
+
+@media (max-width: 500px) {
+  #EditVdo {
+    height: auto;
+  }
+  #EditVdo .editBox .row {
+    width: 100% !important;
+    margin-left: 2px;
+  }
+  #EditVdo .editBox .row .col-lg-5 {
+    width: 100% !important;
+  }
+  #EditVdo .editBox .row .col-lg-5 iframe {
+    width: 100%;
+    height: 200px;
+  }
+  #EditVdo .editBox .row .col-lg-7 form {
+    margin-top: 20px;
+  }
+  #EditVdo .editBox .row .col-lg-7 form button {
+    margin-top: 20px;
+  }
+  #EditVdo .editBox .row .col-lg-7 form .row .col-4 label {
+    font-size: 13px !important;
+    font-weight: bolder;
+  }
+  #EditVdo .editBox .row .col-lg-7 form .row .col-8 input {
+    font-weight: bold !important;
+  }
+}
+
+/*# sourceMappingURL=editVdo.css.map */

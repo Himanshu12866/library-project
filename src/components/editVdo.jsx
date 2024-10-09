@@ -2,7 +2,8 @@
 import axios from "axios"
 import { useFormik } from "formik"
 import { useEffect, useState } from "react"
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom";
+import "../styles/editVdo.css"
 
 export default function EditVdo() {
 
@@ -56,23 +57,23 @@ export default function EditVdo() {
     })
 
     return (
-        <div className="home-box-1 p-2">
+        <div className="home-box-1 p-2"  id="EditVdo">
             <h1 className="bg-dark text-light p-2">Edit Video Details</h1>
             <marquee className="text-light fs-4">Please Edit video details Carefully</marquee>
-            <div className="d-flex justify-content-center w-100">
+            <div className="d-flex justify-content-lg-center editBox  w-100">
 
                 <div className="row my-1 w-75">
-                    <div className="col-lg-5">
-                        <iframe src={formik.values.url} title="video" style={{ width: "400px", height: "350px" }}></iframe>
+                    <div className="col-lg-5 col-sm-12">
+                        <iframe src={formik.values.url} title="video" ></iframe>
                         <Link to="/adminDash" className="btn btn-warning w-100 p-2" style={{ marginTop: "30px" }}>Cancel</Link>
                     </div>
-                    <div className="col-lg-7 tex-left">
+                    <div className="col-lg-7 col-sm-12 tex-left">
                         <form onSubmit={formik.handleSubmit}>
                             <div className="row my-1">
-                                <div className="col-4">
+                                <div className="col-4 col-sm-6">
                                     <label className="form-label fs-4">Video Id :</label>
                                 </div>
-                                <div className="col-8">
+                                <div className="col-8 col-sm-6">
                                     <input className="form-control"  value={detail[0].videoId} onChange={formik.handleChange}></input>
                                 </div>
                             </div>
@@ -132,7 +133,7 @@ export default function EditVdo() {
                                     <input className="form-control" name="views" value={formik.values.views} onChange={formik.handleChange}></input>
                                 </div>
                             </div>
-                            <button className="btn btn-dark w-75 p-2" type="submit" style={{ marginTop: "0px" }}>Save Details</button>
+                            <button className="btn btn-dark w-75 p-2" type="submit">Save Details</button>
                         </form>
                     </div>
                 </div>

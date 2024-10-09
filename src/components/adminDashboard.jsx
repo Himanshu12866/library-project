@@ -1,8 +1,6 @@
 // import NavBar from "./navbar";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
-
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import "../styles/adminDash.css"
@@ -18,26 +16,20 @@ export default function AdminDashBoard() {
         dislikes: "",
         likes: "",
         views: ""
-
     }])
-
     function Loadvdo() {
         axios.get("http://127.0.0.1:1234/videos")
             .then(response => {
                 setVdo(response.data)
             })
     }
-
-
     useEffect(() => {
         Loadvdo()
     }, [cookies])
-
     function RemoveCookie() {
         removeCookie("Adminname", { path: "/" });
         navigate("/");
     }
-
     return (
         <div className="home-box-1 overflow-x-hidden">
             <nav className="navbar navbar-expand-lg  p-3 bg-dark bg-light">
