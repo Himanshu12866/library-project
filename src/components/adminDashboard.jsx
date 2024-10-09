@@ -95,7 +95,7 @@ export default function AdminDashBoard() {
                                         <Link to={`/editVdo/${item.videoId}`} className="btn btn-dark w-100 p-2 mt-3">Edit Video Details</Link>
                                     </div>
                                     <div className="col-6">
-                                        <Link to={`/deleteVdo/:${item.videoId}`} className="btn btn-danger w-100 p-2 mt-3">Remove Video</Link>
+                                        <Link to={`/deleteVdo/${item.videoId}`} className="btn btn-danger w-100 p-2 mt-3">Remove Video</Link>
                                     </div>
                                 </div>
                             </div>

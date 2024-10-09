@@ -7,11 +7,11 @@ import { Link, useNavigate, useParams } from "react-router-dom"
 export default function DeletVdo() {
 
     let params = useParams()
-    let videoId = parseInt(params.videoId)
+    
     
     // let navigate = useNavigate()
     
-    const [detail, setDetail] = useState([{
+    const [detail, setDetail] = useState({
         videoId: 0,
         videoName: "",
         title: "",
@@ -21,10 +21,10 @@ export default function DeletVdo() {
         likes: "",
         views: ""
         
-    }]);
+    });
     function LoadVideo() {
      
-        axios.get(`http://127.0.0.1:1234/deleteVdo/${videoId}`)
+        axios.get(`http://127.0.0.1:1234/deleteVdo/${params.videoId}`)
             .then(response => {
                 setDetail(response.data)
                 console.log(detail)
