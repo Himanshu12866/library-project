@@ -62,11 +62,11 @@ export default function UserDash() {
     return (
         <div className="home-box-1 overflow-y-scroll">
             <nav className="navbar navbar-expand-lg bg-dark p-2 ">
-                <Link  className="navbar-brand text-light fw-bold" href="$" >Video Library</Link>
-                <button className="navbar-toggler">
+                <a  className="navbar-brand text-light fw-bold" href="$" >Video Library</a>
+                <button className="navbar-toggler" data-bs-target="#list" data-bs-toggle="collapse" >
                     <span className="bi bi-list text-light"></span>
                 </button>
-                <div className="navbar-collapse collapse d-flex justify-content-between mx-3" id="#list">
+                <div className="navbar-collapse collapse d-flex justify-content-lg-between mx-3" id="#list">
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <a className="nav-link text-light ">User Dashboard</a>
@@ -74,9 +74,9 @@ export default function UserDash() {
                     </ul>
                     <ul className="navbar-nav">
                         <li className="nav-item " >
-                            <p className="text-light py-2 px-2 my-2 bg-primary position-relative">
+                            <a className="text-light py-2 px-2 my-2 bg-primary position-relative">
                                 <span >{cookies.Username}</span>
-                            </p>
+                            </a>
                         </li>
                         <li className="nav-item d-flex justify-content-center align-items-center" data-bs-target="#modal-box" data-bs-toggle="modal" style={{ width: "40px", height: "40px", backgroundColor: "red", marginLeft: "10px", marginTop: "10px", borderRadius: "50%", cursor: "pointer" }} >
                             <span className=" bi bi-person-fill fs-4 nav-link text-light"></span>
