@@ -123,5 +123,16 @@ app.get("/userdetails" , (req,res) => {
         })
     })
 })
+app.delete("/delete/:videoId" , (req ,res) => {
+    mongoclient.connect(url).then(clientObj => {
+        let id = parseInt(req.params.videoId)
+        let db = clientObj.db(dbName)
+        db.collection("videos").deleteOne({videoId:id}).then(document => {
+            res.send("Deleted Successfully")
+            
+            res.end()
+        })
+    })
+})
 app.listen(1234)
 console.log("Server Started at http://127.0.0.1:1234")
