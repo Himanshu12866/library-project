@@ -1,0 +1,86 @@
+.home-box-1 {
+    #adminBox {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .adminDiv {
+            width: 85%;
+            .row {
+                width: 100%;
+                height: 400px;
+                .col-lg-6 {
+                    text-align: left;
+                    iframe {
+                        width: 100%;
+                        height: 380px;
+                    }
+                    .insideCol {
+                        height: 320px;
+                        .btnsGrp {
+                            display: flex;
+                            justify-content: flex-start;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width:500px) {
+    .home-box-1 {
+        width: 100%;
+        #adminBox {
+            margin: 12px;
+            width: 100%;
+            flex-direction: column;
+            .adminDiv {
+                width: 100%;
+                .row {
+                    width: 100%;
+                    height: auto;
+
+                    .col-lg-6 {
+                        width: 100%;
+                        text-align: left;
+
+                        .row {
+                            display: flex;
+                            justify-content: space-between;
+                            padding-left: 22px;
+                        }
+
+                        iframe {
+                            width: 100%;
+                            height: 220px;
+                        }
+
+                        .insideCol {
+                            height: 250px;
+
+                            .fs-3 {
+                                font-size: 20px !important;
+
+                                .fs-2 {
+                                    font-size: 20px !important;
+                                }
+                            }
+
+                            .btnsGrp {
+                                justify-content: center;
+                                width: 100%;
+
+                                p {
+                                    width: 300px;
+
+                                    span {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

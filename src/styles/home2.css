@@ -25,4 +25,10 @@
   color: white;
 }
 
+@media (max-width: 500px) {
+  .home-box-1 {
+    height: 110vh;
+  }
+}
+
 /*# sourceMappingURL=home2.css.map */

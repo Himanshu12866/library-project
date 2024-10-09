@@ -81,7 +81,7 @@ export default function RegisterUser() {
     return (
         <div className="home-box-1 d-flex justify-content-center">
 
-            <div className="card w-50" id="CardId">
+            <div className="card" id="CardId">
                 <div className="card-header">Register Details</div>
                 <form onSubmit={formik.handleSubmit}>
                     <div className="row my-2">
@@ -131,7 +131,7 @@ export default function RegisterUser() {
                         <div className="col-lg-6">
                             <div className="input-group">
                                 <input className="form-control text-light" name="captcha" onChange={formik.handleChange} style={{ backgroundColor: "transparent", border: "3px solid green" }}></input>
-                                <span className="input-gruop-text px-3 py-1" style={{ backgroundColor: "transparent", color: "white", border: "3px solid green", width: "100px" }}>{otp}</span>
+                                <span className="input-gruop-text px-3 py-1" style={{ backgroundColor: "transparent", color: "white", border: "3px solid green", width: "120px" }}>{otp}</span>
                                 <span className="input-group-text bi bi-arrow-clockwise" onClick={Generate} style={{ backgroundColor: "transparent", color: "white", border: "3px solid green", cursor: "pointer" }}></span>
                             </div>
                             <span className="text-danger">{formik.errors.captcha}</span>

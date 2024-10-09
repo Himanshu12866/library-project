@@ -2,6 +2,7 @@
   margin-top: 10px;
   margin-bottom: 50px;
   color: white;
+  width: 50%;
   background-color: transparent;
   backdrop-filter: blur(5px);
   height: auto 580px;
@@ -26,6 +27,25 @@
 .home-box-1 #CardId form .card-body .row .col-lg-6 input {
   background-color: transparent;
   border: 3px solid red;
+}
+
+@media (max-width: 500px) {
+  .home-box-1 #CardId {
+    width: 90%;
+    margin-top: 2px;
+  }
+  .home-box-1 #CardId .card-header {
+    font-size: 25px;
+  }
+  .home-box-1 #CardId form {
+    margin-top: 5px;
+  }
+  .home-box-1 #CardId form .card-body {
+    margin-top: 5px;
+  }
+  .home-box-1 #CardId form .card-body .row {
+    margin-top: 5px;
+  }
 }
 
 /*# sourceMappingURL=userlogin.css.map */

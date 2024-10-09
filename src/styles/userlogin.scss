@@ -3,6 +3,7 @@
         margin-top: 10px;
         margin-bottom: 50px;
         color: white;
+        width: 50%;
         background-color: transparent;
         backdrop-filter: blur(5px);
         height:auto 580px;
@@ -14,25 +15,39 @@
 
         form {
             margin-top: 20px;
-
             .card-body {
                 margin-top: 20px;
-
                 .row {
                     margin-top: 20px;
-
                     .col-lg-6 {
                         label {
                             font-size: 20px;
-                            font-weight: bold;
-                            
+                            font-weight: bold;                         
                         }
-
                         input {
                             background-color: transparent;
                             border: 3px solid red;
-                        }
-                     
+                        }                
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width:500px){
+    .home-box-1{
+        #CardId{
+            width: 90%;
+            margin-top: 2px;
+            .card-header{
+                font-size: 25px;
+            }
+            form{
+                margin-top: 5px;
+                .card-body{
+                    margin-top: 5px;
+                    .row{
+                        margin-top: 5px;
                     }
                 }
             }
