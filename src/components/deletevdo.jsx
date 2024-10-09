@@ -3,7 +3,7 @@ import axios from "axios"
 // import { useFormik } from ""
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
-
+import "../styles/deleteVdo.css"
 export default function DeletVdo() {
 
     let params = useParams()
@@ -30,15 +30,15 @@ export default function DeletVdo() {
                 console.log(detail)
             })
     }
-    function CheckFunction(){
-        let sure  = window.confirm("Are Sure To Delete")
-        if(sure === true){
-           axios.delete(`http://127.0.0.1:1234/delete/${params.videoId}`)
-           alert("Video Deleted Succefully")
-           navigate("/adminDash")
+    function CheckFunction() {
+        let sure = window.confirm("Are Sure To Delete")
+        if (sure === true) {
+            axios.delete(`http://127.0.0.1:1234/delete/${params.videoId}`)
+            alert("Video Deleted Succefully")
+            navigate("/adminDash")
 
         }
-        else{
+        else {
             alert("Cancelled")
         }
     }
@@ -50,11 +50,11 @@ export default function DeletVdo() {
     return (
         <div className="home-box-1 p-2">
             <h1 className="bg-dark text-light p-2">Delete Video</h1>
-                {
-                    detail.map(item =>
-            <div className="d-flex justify-content-center w-100">                    
+            {
+                detail.map(item =>
+                    <div className="deleteVdo">
                         <div className=" row w-75" key={item.videoId} style={{ backdropFilter: "blur(5px)", marginTop: "20px" }}>
-                            <div className="col-6">
+                            <div className="col-lg-6 col-sm-12">
                                 <iframe src={item.url} title={item.title} style={{ width: "100%", height: "383px" }}></iframe>
                                 <div className="row my-2">
                                     <div className="col-6">
@@ -65,13 +65,13 @@ export default function DeletVdo() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-6">
+                            <div className="col-lg-6 col-sm-12">
                                 <div className="card" style={{ backgroundColor: "transparent" }}>
                                     {/* <div className="card-header">
                                        
                                     </div> */}
-                                    <div className="card-body"style={{height:"383px"}}>
-                                    <div className=" row my-2">
+                                    <div className="card-body" style={{ height: "383px" }}>
+                                        <div className=" row my-2">
                                             <div className="col-6" style={{ textAlign: "left" }}>
                                                 <h4 className="card-title text-light">Video Id :</h4>
                                             </div>
@@ -127,10 +127,10 @@ export default function DeletVdo() {
                                                 <h4 className="card-title text-light">{item.views}</h4>
                                             </div>
                                         </div>
-                                       
+
                                     </div>
                                     <div className="card-footer">
-                                    <div className=" row my-1">
+                                        <div className=" row my-1">
                                             <div className="col-12">
                                                 <button onClick={CheckFunction} className="btn btn-danger w-100">Delete</button>
                                             </div>
@@ -140,9 +140,9 @@ export default function DeletVdo() {
 
                             </div>
                         </div>
-                        </div>
-                    )
-                }     
+                    </div>
+                )
+            }
         </div>
     )
 }
