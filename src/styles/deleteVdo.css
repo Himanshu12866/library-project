@@ -3,5 +3,43 @@
   justify-content: center;
   width: 100%;
 }
+.home-box-1 .deleteVdo .row .col-lg-6 .card .card-body {
+  height: 383px;
+}
+.home-box-1 .deleteVdo .row .col-lg-6 .card .card-body .row .col-6 {
+  text-align: left;
+}
+.home-box-1 .deleteVdo .row .col-lg-6 iframe {
+  width: 100%;
+  height: 383px;
+}
+
+@media (max-width: 500px) {
+  .home-box-1 .deleteVdo .row {
+    width: 95% !important;
+  }
+  .home-box-1 .deleteVdo .row .col-lg-6 .card .card-body {
+    height: auto;
+  }
+  .home-box-1 .deleteVdo .row .col-lg-6 .card .card-body .row {
+    margin-left: 20px;
+  }
+  .home-box-1 .deleteVdo .row .col-lg-6 .card .card-body .row .col-6 {
+    text-align: left;
+  }
+  .home-box-1 .deleteVdo .row .col-lg-6 .card .card-body .row .col-6 h4 {
+    font-size: 15px;
+  }
+  .home-box-1 .deleteVdo .row .col-lg-6 .card .card-footer .row {
+    margin-left: 15px;
+  }
+  .home-box-1 .deleteVdo .row .col-lg-6 iframe {
+    width: 100%;
+    height: 220px;
+  }
+  .home-box-1 .deleteVdo .row .col-lg-6 .LinkBtn {
+    margin-left: 10px;
+  }
+}
 
 /*# sourceMappingURL=deleteVdo.css.map */

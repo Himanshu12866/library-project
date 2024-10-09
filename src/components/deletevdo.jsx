@@ -55,8 +55,8 @@ export default function DeletVdo() {
                     <div className="deleteVdo">
                         <div className=" row w-75" key={item.videoId} style={{ backdropFilter: "blur(5px)", marginTop: "20px" }}>
                             <div className="col-lg-6 col-sm-12">
-                                <iframe src={item.url} title={item.title} style={{ width: "100%", height: "383px" }}></iframe>
-                                <div className="row my-2">
+                                <iframe src={item.url} title={item.title}></iframe>
+                                <div className="row my-2 LinkBtn">
                                     <div className="col-6">
                                         <Link to="/adminDash" className="btn btn-success text-light w-100">Cancel</Link>
                                     </div>
@@ -67,63 +67,60 @@ export default function DeletVdo() {
                             </div>
                             <div className="col-lg-6 col-sm-12">
                                 <div className="card" style={{ backgroundColor: "transparent" }}>
-                                    {/* <div className="card-header">
-                                       
-                                    </div> */}
-                                    <div className="card-body" style={{ height: "383px" }}>
-                                        <div className=" row my-2">
-                                            <div className="col-6" style={{ textAlign: "left" }}>
+                                    <div className="card-body">
+                                        <div className="row my-2">
+                                            <div className="col-6">
                                                 <h4 className="card-title text-light">Video Id :</h4>
                                             </div>
-                                            <div className="col-6" style={{ textAlign: "left" }}>
+                                            <div className="col-6">
                                                 <h4 className="card-title text-light">{item.videoId}</h4>
                                             </div>
                                         </div>
                                         <div className=" row my-2">
-                                            <div className="col-6" style={{ textAlign: "left" }}>
+                                            <div className="col-6">
                                                 <h4 className="card-title text-light">Video Name :</h4>
                                             </div>
-                                            <div className="col-6" style={{ textAlign: "left" }}>
+                                            <div className="col-6">
                                                 <h4 className="card-title text-light">{item.videoName}</h4>
                                             </div>
                                         </div>
                                         <div className=" row my-2">
-                                            <div className="col-6" style={{ textAlign: "left" }}>
+                                            <div className="col-6">
                                                 <h4 className="card-title text-light">Video Title :</h4>
                                             </div>
-                                            <div className="col-6" style={{ textAlign: "left" }}>
+                                            <div className="col-6">
                                                 <h4 className="card-title text-light">{item.title}</h4>
                                             </div>
                                         </div>
                                         <div className=" row my-2">
-                                            <div className="col-6" style={{ textAlign: "left" }}>
+                                            <div className="col-6">
                                                 <h4 className="card-title text-light">Video Category :</h4>
                                             </div>
-                                            <div className="col-6" style={{ textAlign: "left" }}>
+                                            <div className="col-6">
                                                 <h4 className="card-title text-light">{item.videoCategory}</h4>
                                             </div>
                                         </div>
                                         <div className=" row my-2">
-                                            <div className="col-6" style={{ textAlign: "left" }}>
+                                            <div className="col-6">
                                                 <h4 className="card-title text-light">Video Likes :</h4>
                                             </div>
-                                            <div className="col-6" style={{ textAlign: "left" }}>
+                                            <div className="col-6">
                                                 <h4 className="card-title text-light">{item.likes}</h4>
                                             </div>
                                         </div>
                                         <div className=" row my-2">
-                                            <div className="col-6" style={{ textAlign: "left" }}>
+                                            <div className="col-6">
                                                 <h4 className="card-title text-light">Video Dislikes :</h4>
                                             </div>
-                                            <div className="col-6" style={{ textAlign: "left" }}>
+                                            <div className="col-6">
                                                 <h4 className="card-title text-light">{item.dislikes}</h4>
                                             </div>
                                         </div>
                                         <div className=" row my-2">
-                                            <div className="col-6" style={{ textAlign: "left" }}>
+                                            <div className="col-6">
                                                 <h4 className="card-title text-light">Video Views :</h4>
                                             </div>
-                                            <div className="col-6" style={{ textAlign: "left" }}>
+                                            <div className="col-6">
                                                 <h4 className="card-title text-light">{item.views}</h4>
                                             </div>
                                         </div>
