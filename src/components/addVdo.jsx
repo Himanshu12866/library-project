@@ -46,7 +46,7 @@ export default function AddVideo() {
             <h1 className="btn fw-bold btn-dark w-100 my-2 p-4" style={{ textTransform: "uppercase", fontSize: "20px", letterSpacing: "2px" }}>Add Video</h1>
 
             <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
-                <div className="card w-75" style={{ backgroundColor: "rgba(0,0,0,.6)" }}>
+                <div className="card w-75 w-sm-100" style={{ backgroundColor: "rgba(0,0,0,.6)" }}>
 
                     <div className="card-header" style={{ backgroundColor: "transparent", color: "white" }}>
                         <h2>Please Fill The Details</h2>

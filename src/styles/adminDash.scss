@@ -29,6 +29,27 @@
 @media(max-width:500px) {
     .home-box-1 {
         width: 100%;
+        nav{
+            .collapse{
+             .navbar-nav{
+                .nav-item{
+                    .signOut{
+                        background-color: red;
+                        border-radius: 10px;
+                        margin-top: 15px;
+                    }
+                    .btn{
+                        margin-top: 15px;
+                        background-color: red;
+                        margin-left: 1px !important;
+                    }
+                    .nav-link{
+                        width: 100%;
+                    }
+                }
+             }
+            }
+        }
         #adminBox {
             margin: 12px;
             width: 100%;

@@ -29,6 +29,19 @@
   .home-box-1 {
     width: 100%;
   }
+  .home-box-1 nav .collapse .navbar-nav .nav-item .signOut {
+    background-color: red;
+    border-radius: 10px;
+    margin-top: 15px;
+  }
+  .home-box-1 nav .collapse .navbar-nav .nav-item .btn {
+    margin-top: 15px;
+    background-color: red;
+    margin-left: 1px !important;
+  }
+  .home-box-1 nav .collapse .navbar-nav .nav-item .nav-link {
+    width: 100%;
+  }
   .home-box-1 #adminBox {
     margin: 12px;
     width: 100%;
