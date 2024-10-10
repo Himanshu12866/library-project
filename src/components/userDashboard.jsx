@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
+import "../styles/userDash.css"
 
 
 
@@ -78,13 +79,13 @@ export default function UserDash() {
                                 <span >{cookies.Username}</span>
                             </p>
                         </li>
-                        <li className="nav-item d-flex justify-content-center align-items-center" data-bs-target="#modal-box" data-bs-toggle="modal" style={{ width: "40px", height: "40px", backgroundColor: "red", marginLeft: "10px", marginTop: "10px", borderRadius: "50%", cursor: "pointer" }} >
+                        <li className="nav-item d-flex justify-content-center align-items-center" id="Icon" data-bs-target="#modal-box" data-bs-toggle="modal" >
                             <span className=" bi bi-person-fill fs-4 nav-link text-light"></span>
                         </li>
-                        <li className="nav-item">
+                        <li className="nav-item" id="Icons">
                             <span className="nav-link text-light bi bi-clock-fill m-1 fs-4 fw-bold"></span>
                         </li>
-                        <li className="nav-item ">
+                        <li className="nav-item " id="Icons">
                             <span onClick={Logout} title="Logout" style={{ cursor: "pointer" }} className=" bi bi-box-arrow-right fs-4 m-1  nav-link text-light"></span>
                         </li>
                     </ul>
