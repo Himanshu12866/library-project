@@ -37,13 +37,8 @@ export default function RegisterUser() {
 
         username: yup
             .string()
-            .required("Please enter a valid Username")
-            .min(6, "Username must be at least 6 characters")
-            .max(12, "Username cannot exceed 12 characters")
-            .matches(
-               /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/,
-                'Username must be between 6 and 12 characters, with at least one uppercase letter, one lowercase letter, and one digit'
-            ),
+            .required("Please enter a valid Username"),
+
         email: yup
             .string()
             .required("Please Enter Your Email")
@@ -56,7 +51,7 @@ export default function RegisterUser() {
                 /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
                 "Password must contain at least 8 characters, one uppercase, one lowercase, one number, and one special character"
             ),
-            captcha: yup.string().required("Please Enter the Captcha").test("captcha-match", "Please enter the correct code", (value) => value === otp) // Custom validation for Captcha
+        captcha: yup.string().required("Please Enter the Captcha").test("captcha-match", "Please enter the correct code", (value) => value === otp) // Custom validation for Captcha
 
     });
 

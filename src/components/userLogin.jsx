@@ -13,21 +13,22 @@ export default function UserLogin() {
     const [type, setType] = useState("password")
     const [eye, setEye] = useState("bi bi-eye-slash-fill")
     const [user, setUser] = useState([]);
-    const [cookies , setCookie , ] = useCookies(["Username" , "UserId"])
+    const [cookies, setCookie,] = useCookies(["Username", "UserId"])
     function Generate() {
         let code = useCapcha()
         setOtp(code)
     }
     let navigate = useNavigate()
     function LoadUsers() {
-        axios.get("http://127.0.0.1:1234/userdetails")
-            .then(response => {
-                setUser(response.data)
-                console.log(user)
-
-            })
-
-
+        try {
+            axios.get("http://127.0.0.1:1234/userdetails")
+                .then(response => {
+                    setUser(response.data)
+                    console.log(user)
+                })
+        } catch (error) {
+            console.log(error)
+        }
     }
     function ShowPsw() {
         if (type === "password") {
@@ -55,14 +56,14 @@ export default function UserLogin() {
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
-            let detail = user.find(data => data.email === values.useremail && data.userpsw === values.userpsw )
-            if(detail){
+            let detail = user.find(data => data.email === values.useremail && data.userpsw === values.userpsw)
+            if (detail) {
                 alert(`Login Success\n WELCOME ${detail.name} `);
-                setCookie("Username" , detail.name , {path:"/useDash"})
-                setCookie("UserId" , detail.username)
+                setCookie("Username", detail.name, { path: "/useDash" })
+                setCookie("UserId", detail.username)
                 navigate("/userDash")
             }
-            else{
+            else {
                 alert("Invalid Email or Password");
             }
         }

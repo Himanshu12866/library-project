@@ -2,15 +2,10 @@ const express = require('express')
 const mongoclient = require("mongodb").MongoClient
 const url = "mongodb://127.0.0.1:27017"
 const cors = require("cors")
-
-
-
 const app = express()
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors())
-
-
 app.get('/products', (req, res) => {
     mongoclient.connect(url).then(clientObj => {
         let db = clientObj.db("libraryProject")
@@ -19,9 +14,7 @@ app.get('/products', (req, res) => {
             res.end()
         })
     })
-
 })
-
 app.post('/insert', (req, res) => {
     let product = {
         id: parseInt(req.body.id),
@@ -34,7 +27,6 @@ app.post('/insert', (req, res) => {
             rate: parseInt(req.body.rate),
             count: parseInt(req.body.count)
         }
-
     }
     mongoclient.connect(url).then(clientObj => {
         let db = clientObj.db("libraryProject")
@@ -84,15 +76,15 @@ app.put('/products/edit/:id', (req, res) => {
 
 )
 
-app.delete('/products/:id' , (req,res) =>{
+app.delete('/products/:id', (req, res) => {
     let id = parseInt(req.params.id)
     mongoclient.connect(url).then(clientObj => {
         let db = clientObj.db("libraryProject")
-            db.collection("products").deleteOne({id:id}).then(() =>{
-                res.send("Deleted Successfully")
-                res.end()
-            })
-        
+        db.collection("products").deleteOne({ id: id }).then(() => {
+            res.send("Deleted Successfully")
+            res.end()
+        })
+
     })
 })
 app.listen(5555)

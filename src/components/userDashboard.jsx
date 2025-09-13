@@ -30,22 +30,33 @@ export default function UserDash() {
     }])
 
     function Loadvdo() {
-        axios.get("http://127.0.0.1:1234/videos")
+        try {
+            axios.get("http://127.0.0.1:1234/videos")
             .then(response => {
                 setVdo(response.data)
             })
+        } catch (error) {
+           console.log(error) 
+        }
+        
     }
 
 
 
     function LoadUser() {
         let id = cookies.UserId;
-        axios.get("http://127.0.0.1:1234/userdetails")
+
+        try {
+            axios.get("http://127.0.0.1:1234/userdetails")
             .then(response => {
                 let data = response.data
                 setUser(data.find(item => item.username === id))
 
             })
+        } catch (error) {
+            console.log(error)
+        }
+        
 
     }
 

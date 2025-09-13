@@ -14,7 +14,7 @@ export default function IndexPage() {
 
     return (
         <div>
-            <BrowserRouter>
+            
                 <Routes>
                     <Route path="/" element={<OUTLet />} />
                     <Route path="/admin" element={<AdminLogin />} />
@@ -27,7 +27,7 @@ export default function IndexPage() {
                     <Route path="/deleteVdo/:videoId" element={<DeletVdo/>} />
                     <Route path="*" element={"<h1>Sorry Not Found</h2>"}></Route>
                 </Routes>
-            </BrowserRouter>
+
         </div>
     )
 }

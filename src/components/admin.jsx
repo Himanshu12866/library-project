@@ -32,11 +32,17 @@ export default function AdminLogin() {
     }
     // Fetch admin data from the server
     function LoadAdmins() {
-        axios.get('http://127.0.0.1:1234/admins')
+
+        try {
+             axios.get('http://127.0.0.1:1234/admins')
             .then(response => {
                 setAdmin(response.data);
             })
             .catch(err => console.error(err)); // Added error handling
+        } catch (error) {
+            console.error(error);
+        }
+       
     }
 
     const validationSchema = yup.object({
